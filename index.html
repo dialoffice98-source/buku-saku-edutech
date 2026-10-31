@@ -1,0 +1,1531 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Buku Saku EDUtech Asia</title>
+<meta name="description" content="Buku saku delegasi Eduvizta untuk EDUtech Asia 2026: jadwal, booth, sesi, kontak, dan rekap. Bisa dipakai offline.">
+<meta name="theme-color" content="#0B1B3F">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="Buku Saku">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="icon" href="icon-192.png" type="image/png">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<style>
+/* Layout: one narrow working column (max 760px). Navy header from the Eduvizta booklet with the sync state,
+   a bottom tab bar on phones that becomes a sticky top tab row on laptops. Yellow marks checklist codes and priority A. */
+:root{
+  --bg:#F2F4F9; --card:#FFFFFF; --field:#F8F9FC; --ink:#0F1A33; --muted:#586379; --line:#D9DFEA; --soft:#EBEFF7;
+  --hdr:#0B1B3F; --hdr-ink:#FFFFFF; --hdr-muted:#AEB9D6;
+  --yellow:#F5C33B; --yellow-ink:#1D1600; --code-bg:#FCEFC4; --code-ink:#5C4500;
+  --blue:#1C58B4; --blue-soft:#E2EBFA; --orange:#D9581F;
+  --ok:#17834F; --ok-soft:#DCF2E6; --warn:#A85800;
+  --k-log:#7B869C; --k-wis:#1A8C86; --k-expo:#1C58B4; --k-sesi:#C99410; --k-mkn:#17834F; --k-eval:#D9581F;
+  --font:ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --mono:ui-monospace, SFMono-Regular, Menlo, Consolas, "Roboto Mono", monospace;
+  --hdr-h:56px;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#070E22; --card:#0E1936; --field:#0B1530; --ink:#E8ECF5; --muted:#9AA5BE; --line:#22305A; --soft:#14224A;
+    --hdr:#0C1A3D; --hdr-ink:#FFFFFF; --hdr-muted:#A4B0CF;
+    --yellow:#F5C33B; --yellow-ink:#1D1600; --code-bg:#3A300C; --code-ink:#F6D36A;
+    --blue:#8BB2F2; --blue-soft:#16295A; --orange:#F08A55;
+    --ok:#5CCB91; --ok-soft:#113A29; --warn:#F2A65A;
+    --k-log:#8D98B0; --k-wis:#4CC6BF; --k-expo:#8BB2F2; --k-sesi:#F5C33B; --k-mkn:#5CCB91; --k-eval:#F08A55;
+    color-scheme:dark;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#070E22; --card:#0E1936; --field:#0B1530; --ink:#E8ECF5; --muted:#9AA5BE; --line:#22305A; --soft:#14224A;
+  --hdr:#0C1A3D; --hdr-ink:#FFFFFF; --hdr-muted:#A4B0CF;
+  --yellow:#F5C33B; --yellow-ink:#1D1600; --code-bg:#3A300C; --code-ink:#F6D36A;
+  --blue:#8BB2F2; --blue-soft:#16295A; --orange:#F08A55;
+  --ok:#5CCB91; --ok-soft:#113A29; --warn:#F2A65A;
+  --k-log:#8D98B0; --k-wis:#4CC6BF; --k-expo:#8BB2F2; --k-sesi:#F5C33B; --k-mkn:#5CCB91; --k-eval:#F08A55;
+  color-scheme:dark;
+}
+*{box-sizing:border-box}
+html,body{margin:0}
+html{-webkit-text-size-adjust:100%}
+body{-webkit-tap-highlight-color:transparent}
+img{max-width:100%}
+[hidden]{display:none!important}
+body{background:var(--bg);color:var(--ink);font-family:var(--font);font-size:15px;line-height:1.5;
+  padding-block:env(safe-area-inset-top,0px) calc(88px + env(safe-area-inset-bottom,0px));}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:40;background:var(--hdr)}
+.wrap{max-width:760px;margin:0 auto;padding-left:max(16px, env(safe-area-inset-left,0px));padding-right:max(16px, env(safe-area-inset-right,0px))}
+button{font:inherit;color:inherit}
+:focus-visible{outline:2px solid var(--blue);outline-offset:2px}
+
+/* Header */
+.top{position:sticky;top:env(safe-area-inset-top,0px);z-index:30;background:var(--hdr);color:var(--hdr-ink)}
+.top::before{content:"";display:block;height:3px;background:linear-gradient(90deg,#22B3A6,#2A86E0 35%,#F5C33B 68%,#F07A3A)}
+.top .wrap{height:var(--hdr-h);display:flex;align-items:center;justify-content:space-between;gap:12px}
+.brand{min-width:0;display:flex;flex-direction:column;line-height:1.15}
+.brand small{font-size:10.5px;letter-spacing:.12em;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;text-transform:uppercase;color:var(--yellow);font-weight:700}
+.brand b{font-size:17px;font-weight:800;letter-spacing:-.01em;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.pfo{display:flex;gap:12px;align-items:flex-start;border:1px solid var(--line);border-radius:12px;padding:12px 14px;cursor:pointer}
+.pfo input{flex:none;margin:3px 0 0;width:18px;height:18px;accent-color:var(--blue)}
+.pfo b{display:block;font-size:15px}
+.pfo small{display:block;color:var(--muted);font-size:13px}
+.pfo:has(input:checked){border-color:var(--blue);background:var(--blue-soft)}
+.pfopts{display:flex;flex-direction:column;gap:8px}
+#pf .card{overflow:auto}
+button.sync{background:none;cursor:pointer;font:inherit;font-size:12px;font-weight:600}
+.sync{flex:none;display:inline-flex;align-items:center;gap:7px;font-size:12px;font-weight:600;color:var(--hdr-muted);
+  border:1px solid rgba(255,255,255,.18);border-radius:999px;padding:5px 10px;white-space:nowrap}
+.sync i{width:8px;height:8px;border-radius:50%;background:var(--hdr-muted)}
+.sync[data-s="ok"] i{background:#5CCB91}
+.sync[data-s="saving"] i{background:var(--yellow)}
+.sync[data-s="off"] i{background:#F08A55}
+
+/* Tabs */
+.tabs{position:fixed;left:0;right:0;bottom:0;z-index:30;background:var(--card);border-top:1px solid var(--line);
+  padding-bottom:env(safe-area-inset-bottom,0px)}
+.tabs .wrap{display:grid;grid-template-columns:repeat(6,1fr);gap:2px;padding-block:6px}
+.tab{background:none;border:0;display:flex;flex-direction:column;align-items:center;gap:3px;padding:6px 0 4px;
+  font-size:11px;font-weight:600;color:var(--muted);border-radius:10px;cursor:pointer;position:relative}
+.tab svg{width:22px;height:22px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.tab[aria-selected="true"]{color:var(--ink)}
+.tab[aria-selected="true"]::after{content:"";position:absolute;top:-6px;left:28%;right:28%;height:3px;border-radius:0 0 3px 3px;background:var(--yellow)}
+@media (min-width:900px){
+  body{padding-bottom:48px}
+  .tabs{position:sticky;top:calc(env(safe-area-inset-top,0px) + var(--hdr-h) + 3px);bottom:auto;border-top:0;border-bottom:1px solid var(--line);padding-bottom:0}
+  .tabs .wrap{display:flex;gap:4px;padding-block:0}
+  .tab{flex-direction:row;gap:8px;font-size:14px;padding:12px 14px;border-radius:0}
+  .tab svg{width:18px;height:18px}
+  .tab[aria-selected="true"]::after{top:auto;bottom:0;left:10px;right:10px;border-radius:3px 3px 0 0}
+}
+
+/* Views */
+main.wrap{padding-block:20px 8px}
+.view{display:flex;flex-direction:column;gap:16px}
+.vh{display:flex;align-items:flex-end;justify-content:space-between;gap:12px;flex-wrap:wrap}
+.vh h2{margin:0;font-size:22px;font-weight:800;letter-spacing:-.015em;text-wrap:balance}
+.vh p{margin:2px 0 0;color:var(--muted);font-size:13.5px}
+h3{margin:0;font-size:16px;font-weight:700;letter-spacing:-.005em;text-wrap:balance}
+.eyebrow{font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--blue)}
+.muted{color:var(--muted)}
+.card{background:var(--card);border:1px solid var(--line);border-radius:14px}
+.pad{padding:14px 16px}
+.code{display:inline-block;font-family:var(--mono);font-size:10.5px;font-weight:600;line-height:1;padding:3px 6px;border-radius:999px;
+  background:var(--code-bg);color:var(--code-ink);margin-left:5px;vertical-align:1px;white-space:nowrap}
+.codes{display:inline-flex;flex-wrap:wrap;gap:4px}
+.codes .code{margin-left:0}
+
+/* details toggles */
+details>summary{list-style:none;cursor:pointer}
+details>summary::-webkit-details-marker{display:none}
+.chev{flex:none;width:18px;height:18px;stroke:var(--muted);fill:none;stroke-width:2;transition:transform .15s}
+details[open]>summary .chev{transform:rotate(180deg)}
+@media (prefers-reduced-motion:reduce){.chev{transition:none}}
+
+/* Info penting */
+.info summary{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:14px 16px}
+.info dl{margin:0;padding:0 16px 14px;display:grid;grid-template-columns:96px 1fr;gap:8px 12px;font-size:14px}
+.info dt{font-weight:700;color:var(--blue)}
+.info dd{margin:0;min-width:0}
+.alert{background:var(--code-bg);color:var(--code-ink);border-radius:10px;padding:10px 12px;font-size:13.5px;margin:0 16px 12px}
+
+/* Segmented */
+.seg{display:flex;gap:6px;background:var(--soft);padding:4px;border-radius:12px;width:100%}
+.seg button{flex:1;border:0;background:none;padding:8px 6px;border-radius:9px;font-weight:700;font-size:13.5px;color:var(--muted);cursor:pointer}
+.seg button[aria-pressed="true"]{background:var(--card);color:var(--ink);box-shadow:0 1px 2px rgba(0,0,0,.08)}
+.seg button small{display:block;font-weight:500;font-size:11px}
+
+/* Timeline */
+.tl{list-style:none;margin:0;padding:0}
+.tl li{display:grid;grid-template-columns:78px 14px 1fr;gap:0 10px;padding:10px 0;border-bottom:1px solid var(--line)}
+.tl li:last-child{border-bottom:0}
+.tl .t{font-family:var(--mono);font-size:12.5px;font-weight:600;color:var(--muted);padding-top:2px;font-variant-numeric:tabular-nums}
+.tl .d{width:10px;height:10px;border-radius:50%;margin-top:6px;background:var(--k-log)}
+.tl [data-k="wis"] .d{background:var(--k-wis)} .tl [data-k="expo"] .d{background:var(--k-expo)}
+.tl [data-k="sesi"] .d{background:var(--k-sesi)} .tl [data-k="mkn"] .d{background:var(--k-mkn)} .tl [data-k="eval"] .d{background:var(--k-eval)}
+.tl .x{min-width:0}
+.tl .x b{display:block;font-weight:700;font-size:14.5px}
+.tl .x p{margin:2px 0 0;font-size:13.5px;color:var(--muted)}
+.tl li.now{background:var(--soft);border-radius:10px;padding-inline:8px;margin-inline:-8px}
+.nowtag{display:inline-block;font-size:10px;font-weight:800;letter-spacing:.1em;background:var(--yellow);color:var(--yellow-ink);border-radius:4px;padding:2px 5px;margin-right:6px;vertical-align:1px}
+.jump{display:flex;flex-wrap:wrap;gap:6px;margin-top:7px}
+.jump button{border:1px solid var(--line);background:var(--card);border-radius:999px;padding:3px 10px;font-size:12.5px;font-weight:600;cursor:pointer;color:var(--blue)}
+.legend{display:flex;flex-wrap:wrap;gap:6px 14px;font-size:12px;color:var(--muted)}
+.legend span{display:inline-flex;align-items:center;gap:6px}
+.legend i{width:8px;height:8px;border-radius:50%}
+.tip{font-size:13.5px;color:var(--muted);border-left:3px solid var(--line);padding:2px 0 2px 12px;margin:0}
+
+/* Filters */
+.chips{display:flex;gap:6px;overflow-x:auto;padding-bottom:2px;scrollbar-width:none}
+.chips::-webkit-scrollbar{display:none}
+.chips button{flex:none;border:1px solid var(--line);background:var(--card);border-radius:999px;padding:6px 12px;font-size:13px;font-weight:600;cursor:pointer;color:var(--muted)}
+.chips button[aria-pressed="true"]{background:var(--hdr);border-color:var(--hdr);color:var(--hdr-ink)}
+
+/* Booth */
+.blist{display:flex;flex-direction:column;gap:10px}
+.booth>summary{display:grid;grid-template-columns:34px 1fr auto;gap:10px;align-items:center;padding:12px 14px}
+.bn{font-family:var(--mono);font-size:13px;font-weight:600;color:var(--muted)}
+.bt{min-width:0}
+.bt b{display:block;font-size:15.5px;font-weight:700;line-height:1.3}
+.bt small{display:flex;flex-wrap:wrap;gap:4px 8px;align-items:center;font-size:12.5px;color:var(--muted);margin-top:3px}
+.pri{display:inline-block;font-size:10.5px;font-weight:800;letter-spacing:.06em;padding:2px 7px;border-radius:5px;line-height:1.4}
+.pri-A{background:var(--yellow);color:var(--yellow-ink)}
+.pri-B{border:1px solid var(--blue);color:var(--blue)}
+.pri-C{border:1px solid var(--line);color:var(--muted)}
+.pri-X{background:var(--blue-soft);color:var(--blue)}
+.btn.add{width:100%;border-style:dashed;border-width:1.5px;color:var(--blue);background:transparent;padding:12px}
+.cadlist{display:flex;flex-wrap:wrap;gap:6px}
+.cadlist button{border:1px solid var(--line);background:var(--card);border-radius:999px;padding:5px 11px;font-size:13px;font-weight:600;cursor:pointer;color:var(--ink)}
+.cadlist button::before{content:"+ ";color:var(--blue)}
+.xhead{margin:4px 0 -4px;font-size:12px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+.ph li.withbtn{display:flex;align-items:flex-start;justify-content:space-between;gap:10px}
+.ph li.withbtn .btn{flex:none;padding:6px 10px;font-size:12.5px}
+.bs{display:flex;align-items:center;gap:8px}
+.ring{width:22px;height:22px;border-radius:50%;border:2px solid var(--line);display:grid;place-items:center}
+.ring svg{width:13px;height:13px;stroke:var(--card);stroke-width:3;fill:none;opacity:0}
+.booth.done .ring{background:var(--ok);border-color:var(--ok)}
+.booth.done .ring svg{opacity:1}
+.flag{font-size:11px;font-weight:700;color:var(--ok);background:var(--ok-soft);border-radius:4px;padding:1px 6px}
+.bbody{border-top:1px solid var(--line);padding:14px;display:flex;flex-direction:column;gap:14px}
+.meta{display:grid;grid-template-columns:86px 1fr;gap:6px 12px;font-size:13.5px;margin:0}
+.meta dt{color:var(--muted);font-weight:600}
+.meta dd{margin:0;min-width:0}
+.row2{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+@media (max-width:420px){.row2{grid-template-columns:1fr}}
+.toggles{display:flex;flex-wrap:wrap;gap:6px}
+.tg{position:relative;display:inline-flex;align-items:center;gap:6px;border:1px solid var(--line);border-radius:999px;padding:6px 12px;font-size:13px;font-weight:600;cursor:pointer;color:var(--muted);background:var(--card);user-select:none}
+.tg input{position:absolute;opacity:0;width:1px;height:1px}
+.tg:focus-within{outline:2px solid var(--blue);outline-offset:2px}
+.tg:has(input:checked){background:var(--ok-soft);border-color:var(--ok);color:var(--ok)}
+.tg.flagt:has(input:checked){background:var(--blue-soft);border-color:var(--blue);color:var(--blue)}
+.tg::before{content:"";width:14px;height:14px;border-radius:4px;border:1.5px solid currentColor;flex:none}
+.tg:has(input:checked)::before{background:currentColor;box-shadow:inset 0 0 0 2px var(--card)}
+.sublabel{font-size:11.5px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin:0 0 6px}
+
+/* Script */
+.script>summary{display:flex;align-items:center;justify-content:space-between;gap:10px;font-weight:700;font-size:14px;color:var(--blue)}
+.lines{list-style:none;margin:10px 0 0;padding:0;display:flex;flex-direction:column}
+.lines li{display:grid;grid-template-columns:82px 1fr;gap:10px;padding:10px 0;border-top:1px solid var(--line)}
+.lines .lab{font-size:10.5px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:var(--orange);padding-top:3px}
+.lines .en{font-weight:700;font-size:15.5px;line-height:1.4}
+.lines .id{font-style:italic;color:var(--muted);font-size:13.5px;margin-top:2px}
+.lines .fb{font-size:12.5px;color:var(--muted);margin-top:4px}
+.lines .codes{margin-top:6px}
+@media (max-width:420px){.lines li{grid-template-columns:1fr;gap:3px}}
+
+/* Fields */
+.fld{display:flex;flex-direction:column;gap:6px;min-width:0}
+.fl{font-size:13px;font-weight:700;color:var(--ink)}
+.fl em{font-style:normal;font-weight:500;color:var(--muted)}
+textarea,input[type="text"],select{width:100%;font:inherit;font-size:16px;color:var(--ink);background:var(--field);border:1px solid var(--line);border-radius:10px;padding:10px 12px;line-height:1.45}
+textarea{resize:vertical;min-height:72px;field-sizing:content}
+textarea:focus,input[type="text"]:focus{outline:none;border-color:var(--blue);box-shadow:0 0 0 3px var(--blue-soft)}
+::placeholder{color:var(--muted);opacity:.7}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;border:1px solid var(--line);background:var(--card);border-radius:10px;padding:9px 14px;font-weight:700;font-size:14px;cursor:pointer}
+.btn.primary{background:var(--hdr);color:var(--hdr-ink);border-color:var(--hdr)}
+.btn.ghost{border-color:transparent;background:none;color:var(--blue);padding-inline:6px}
+.btn.danger{color:var(--orange);border-color:var(--orange)}
+.btn svg{width:16px;height:16px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round}
+.btnrow{display:flex;flex-wrap:wrap;gap:8px}
+
+/* Pitch / phrases */
+.pitch{background:var(--hdr);color:var(--hdr-ink);border-radius:14px;padding:16px}
+.pitch .en{font-weight:700;font-size:16.5px;line-height:1.45}
+.pitch .id{font-style:italic;color:var(--hdr-muted);font-size:13.5px;margin-top:8px}
+.ph{list-style:none;margin:0;padding:0}
+.ph li{padding:9px 0;border-top:1px solid var(--line)}
+.ph li:first-child{border-top:0}
+.ph b{display:block;font-size:15px}
+.ph i{display:block;font-size:13.5px;color:var(--muted)}
+.facts{display:grid;grid-template-columns:86px 1fr;gap:6px 12px;font-size:13.5px;margin:0}
+.facts dt{font-weight:700;color:var(--blue)}
+.facts dd{margin:0}
+.ref>summary{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:14px 16px}
+.ref .inner{padding:0 16px 16px;display:flex;flex-direction:column;gap:14px}
+
+/* Sesi */
+.sh{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:6px 10px;background:var(--hdr);color:var(--hdr-ink);padding:10px 14px;border-radius:14px 14px 0 0}
+.sh b{color:var(--yellow);font-size:15px}
+.sh span{font-size:12.5px;color:var(--hdr-muted)}
+.req{font-size:10.5px;font-weight:800;letter-spacing:.08em;border-radius:5px;padding:2px 7px;margin-left:8px;vertical-align:1px}
+.req.w{background:var(--yellow);color:var(--yellow-ink)}
+.req.t{background:rgba(255,255,255,.16);color:var(--hdr-ink)}
+.sbody{padding:14px;display:flex;flex-direction:column;gap:12px}
+.sbody .who{color:var(--blue);font-weight:600;font-size:14px}
+.sbody .why{font-size:14px;margin:0}
+.sbody .note{font-size:13px;color:var(--muted);font-style:italic;margin:0}
+.qs{list-style:none;margin:0;padding:0}
+.qs li{padding:8px 0;border-top:1px dashed var(--line)}
+.qs b{display:block;font-size:15px}
+.qs i{display:block;font-size:13px;color:var(--muted)}
+.donebadge{font-size:11px;font-weight:700;background:var(--ok);color:var(--card);border-radius:4px;padding:2px 6px}
+
+/* Tracker */
+.trk{display:flex;flex-direction:column;gap:12px}
+.tr{display:grid;grid-template-columns:1fr auto;gap:4px 12px;align-items:baseline}
+.tr span{font-size:14px;font-weight:600}
+.tr span small{font-weight:500;color:var(--muted)}
+.tr output{font-family:var(--mono);font-size:14px;font-weight:600;font-variant-numeric:tabular-nums}
+.bar{grid-column:1/-1;height:7px;border-radius:7px;background:var(--soft);overflow:hidden}
+.bar i{display:block;height:100%;background:var(--blue);border-radius:7px;width:0;transition:width .25s}
+.tr.full .bar i{background:var(--ok)}
+.tr.full output{color:var(--ok)}
+@media (prefers-reduced-motion:reduce){.bar i{transition:none}}
+
+/* Checklist */
+.cl{display:flex;flex-direction:column}
+.cl h4{margin:14px 0 4px;font-size:14px;font-weight:800;display:flex;align-items:center;gap:8px}
+.cl h4:first-child{margin-top:0}
+.cl h4 i{font-style:normal;font-size:11px;width:20px;height:20px;border-radius:6px;background:var(--hdr);color:var(--hdr-ink);display:grid;place-items:center}
+.ci{display:grid;grid-template-columns:22px 40px 1fr;gap:8px;align-items:start;padding:8px 0;border-top:1px solid var(--line);cursor:pointer;font-size:14px}
+.ci input{width:18px;height:18px;margin:1px 0 0;accent-color:var(--ok)}
+.ci b{font-family:var(--mono);font-size:12.5px;color:var(--blue);padding-top:1px}
+.ci:has(input:checked) span{color:var(--muted);text-decoration:line-through;text-decoration-color:var(--line)}
+
+/* Kontak */
+.contact>summary{display:grid;grid-template-columns:1fr auto;gap:10px;align-items:center;padding:12px 14px}
+.contact .cn{min-width:0}
+.contact .cn b{display:block;font-size:15px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.contact .cn small{display:block;color:var(--muted);font-size:13px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.contact .cbody{border-top:1px solid var(--line);padding:14px;display:flex;flex-direction:column;gap:12px}
+.empty{text-align:center;padding:28px 18px;color:var(--muted);font-size:14px}
+.empty b{display:block;color:var(--ink);font-size:15px;margin-bottom:4px}
+.confirm{display:flex;flex-wrap:wrap;align-items:center;gap:8px;font-size:13.5px}
+
+/* Export panel */
+.sheet{position:fixed;inset:0;z-index:60;background:rgba(5,10,25,.55);display:flex;align-items:flex-end;justify-content:center;
+  padding:16px max(16px, env(safe-area-inset-right,0px)) calc(16px + env(safe-area-inset-bottom,0px)) max(16px, env(safe-area-inset-left,0px))}
+.sheet .card{width:100%;max-width:640px;padding:16px;display:flex;flex-direction:column;gap:12px;max-height:85vh}
+.sheet textarea{flex:1;min-height:220px;font-family:var(--mono);font-size:12.5px;field-sizing:fixed}
+.toast{position:fixed;left:50%;transform:translateX(-50%);bottom:calc(84px + env(safe-area-inset-bottom,0px));z-index:70;
+  background:var(--hdr);color:var(--hdr-ink);font-size:13.5px;font-weight:600;padding:10px 16px;border-radius:10px;max-width:calc(100% - 32px)}
+@media (min-width:900px){.toast{bottom:24px}}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+@media (max-width:640px){.grid2{grid-template-columns:1fr}}
+.stack{display:flex;flex-direction:column;gap:12px}
+</style>
+</head>
+<body>
+<header class="top">
+  <div class="wrap">
+    <div class="brand">
+      <small id="brandSub">Buku Saku Delegasi</small>
+      <b>EDUtech Asia 2026</b>
+    </div>
+    <button class="sync" id="who" data-s="ok" aria-label="Ganti profil"><i></i><span id="syncText">Pilih profil</span></button>
+  </div>
+</header>
+
+<nav class="tabs" aria-label="Bagian buku saku">
+  <div class="wrap" role="tablist">
+    <button class="tab" role="tab" data-tab="jadwal" aria-selected="true"><svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4"/></svg>Jadwal</button>
+    <button class="tab" role="tab" data-tab="booth" aria-selected="false"><svg viewBox="0 0 24 24"><path d="M3 9.5 5 4h14l2 5.5"/><path d="M4.5 12v8h15v-8"/><path d="M3 9.5a3 3 0 0 0 6 0 3 3 0 0 0 6 0 3 3 0 0 0 6 0"/><path d="M10 20v-4h4v4"/></svg>Booth</button>
+    <button class="tab" role="tab" data-tab="sesi" aria-selected="false"><svg viewBox="0 0 24 24"><rect x="9" y="3" width="6" height="11" rx="3"/><path d="M5 11a7 7 0 0 0 14 0M12 18v3M9 21h6"/></svg>Sesi</button>
+    <button class="tab" role="tab" data-tab="kontak" aria-selected="false"><svg viewBox="0 0 24 24"><circle cx="9" cy="8" r="3.5"/><path d="M2.5 20c.8-3.6 3.4-5.5 6.5-5.5s5.7 1.9 6.5 5.5"/><path d="M16 4.6a3.5 3.5 0 0 1 0 6.8M18 14.8c2 .7 3.2 2.4 3.6 5.2"/></svg>Kontak</button>
+    <button class="tab" role="tab" data-tab="misi" aria-selected="false"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1.3"/></svg>Misi</button>
+    <button class="tab" role="tab" data-tab="refleksi" aria-selected="false"><svg viewBox="0 0 24 24"><path d="M4 20h4L19 9l-4-4L4 16z"/><path d="M13.5 6.5l4 4"/></svg>Refleksi</button>
+  </div>
+</nav>
+
+<main class="wrap" id="app">
+  <section class="view" id="v-jadwal" role="tabpanel"></section>
+  <section class="view" id="v-booth" role="tabpanel" hidden></section>
+  <section class="view" id="v-sesi" role="tabpanel" hidden></section>
+  <section class="view" id="v-kontak" role="tabpanel" hidden></section>
+  <section class="view" id="v-misi" role="tabpanel" hidden></section>
+  <section class="view" id="v-refleksi" role="tabpanel" hidden></section>
+</main>
+
+<div class="sheet" id="sheet" hidden>
+  <div class="card" role="dialog" aria-modal="true" aria-labelledby="sheetTitle">
+    <div class="vh"><div><h3 id="sheetTitle">Salin catatan</h3><p class="muted" id="sheetSub">Unduhan tidak tersedia di tampilan ini. Salin teksnya, lalu tempel ke dokumen atau chat.</p></div></div>
+    <textarea id="sheetText" readonly aria-label="Isi catatan"></textarea>
+    <div class="btnrow"><button class="btn primary" id="sheetCopy">Salin semua</button><button class="btn" id="sheetClose">Tutup</button></div>
+  </div>
+</div>
+<div class="sheet" id="pf" hidden>
+  <div class="card" role="dialog" aria-modal="true" aria-labelledby="pfTitle">
+    <div><h3 id="pfTitle">Siapa yang memakai HP ini?</h3><p class="muted" style="margin:2px 0 0;font-size:13.5px">Pilih sekali saja. Semua isian tersimpan di HP ini dan bisa dipakai tanpa internet.</p></div>
+    <div class="pfopts">
+      <label class="pfo"><input type="radio" name="pf" value="dial"><span><b>Dial</b><small>Delegasi 2 · dengan target, 30 booth rencana & skrip</small></span></label>
+      <label class="pfo"><input type="radio" name="pf" value="kustian"><span><b>Kustian</b><small>Delegasi 1 · dengan target & 5 sesi rencana</small></span></label>
+      <label class="pfo"><input type="radio" name="pf" value="peserta"><span><b>Peserta lain</b><small>Tanpa target · bebas mencatat booth, sesi, kontak & catatan</small></span></label>
+    </div>
+    <label class="fld" for="pfName" id="pfNameWrap" hidden><span class="fl">Nama kamu</span><input type="text" id="pfName" autocomplete="name" placeholder="Nama untuk rekap"></label>
+    <p class="muted" id="pfNote" style="margin:0;font-size:13px" hidden>Isian tiap profil disimpan terpisah, jadi berganti profil tidak menghapus apa pun.</p>
+    <div class="btnrow"><button class="btn primary" id="pfGo">Mulai</button><button class="btn" id="pfCancel" hidden>Batal</button></div>
+  </div>
+</div>
+<div class="toast" id="toast" hidden role="status"></div>
+
+<script>
+"use strict";
+/* ================= DATA (dari Buku Saku Misi Delegasi · Dial · Delegasi 2) ================= */
+const INFO = [
+  ["Venue","Sands Expo & Convention Centre, B2 Hall D, E & F (Marina Bay Sands). Bukan Singapore Expo."],
+  ["Jam expo","4 & 5 Nov, 09.30–18.00 SGT · gratis dengan registrasi (tiap delegasi daftar sendiri). 3 Nov hanya workshop berbayar."],
+  ["Badge","B2, Foyer Hall E · 08.30–17.30 · tunjukkan QR dari email. Simpan badge untuk hari 2."],
+  ["Sesi gratis","Stage A & Stage B (Show & Tell, TECH Showcase). Stage 1 & 2 konferensi berbayar."],
+  ["Dress code","Business casual. Dilarang celana pendek, sandal, sendal jepit."],
+  ["Foto","Peralatan foto/video profesional butuh izin panitia. Foto HP di booth: minta izin dulu."],
+  ["Makan","Makan siang tidak termasuk. Kafe di hall; makanan dari luar tidak boleh dibawa masuk hall."],
+  ["Barang","Tidak ada penitipan barang di venue. Hari 5: titip koper di hotel."],
+  ["Transport","MRT/bus bisa tap kartu Visa/Mastercard contactless. Grab/taksi untuk bandara."],
+  ["Masuk SG","Isi SG Arrival Card dalam 3 hari sebelum tiba (31 Okt–3 Nov)."],
+  ["Darurat SG","Polisi 999 · Ambulans/Pemadam 995."]
+];
+
+const DIAL_DAYS = [
+  { key:"2026-11-03", short:"Sel 3", label:"Selasa, 3 November", sub:"Tiba & jalan-jalan", items:[
+    ["04.30 WIB","Check-in di Soekarno-Hatta","Paspor, tiket, QR badge EDUtech (dua orang), SG Arrival Card (isi 31 Okt–3 Nov).","log"],
+    ["07.00 WIB","Terbang Jakarta → Singapura","1 j 45 m. Waktu Singapura = WIB + 1 jam.","log"],
+    ["09.50","Mendarat di Changi","Imigrasi, ambil bagasi.","log"],
+    ["10.30","Jewel Changi — HSBC Rain Vortex & Shiseido Forest Valley","Gratis; air terjun menyala mulai 10.00. Terhubung ke Terminal 1.","wis"],
+    ["11.45","Taksi/Grab ke hotel, titip koper","Check-in kamar biasanya 15.00.","log"],
+    ["12.30","Makan siang & jalan di Kampong Glam","Masjid Sultan, Haji Lane. Makan halal: Hjh Maimunah atau Zam Zam (murtabak).","mkn"],
+    ["14.30","Check-in hotel & istirahat","Mandi, isi baterai, cek buku saku.","log"],
+    ["16.30","Merlion Park → Esplanade → Helix Bridge","Jalan sore di tepi Marina Bay. Rute ini juga jalan kaki ke One Fullerton untuk evaluasi besok.","wis"],
+    ["18.00","Gardens by the Bay — Supertree Grove","Area Supertree gratis. Cloud Forest/Flower Dome & OCBC Skyway berbayar.","wis"],
+    ["18.45","Makan malam","Rasapura Masters (food court The Shoppes MBS, B2) atau Satay by the Bay.","mkn"],
+    ["19.45","Garden Rhapsody — pertunjukan lampu Supertree","Gratis, 15 menit (juga 20.45).","wis"],
+    ["20.30","Survei rute venue","Jalan ke Sands Expo B2, cari Foyer Hall E (tempat badge) supaya besok tidak bingung.","log"],
+    ["21.00","Spectra — pertunjukan air & cahaya MBS","Gratis, di Event Plaza MBS (juga 20.00).","wis"],
+    ["21.30","Kembali ke hotel & briefing berdua","Sepakati rute, sesi, titik kumpul; siapkan kartu nama.","eval","1.1"]
+  ], tip:"3 Nov hanya workshop berbayar, jadi hari ini untuk adaptasi & survei rute. Jaga stamina — besok berdiri dan berjalan seharian. Jam pertunjukan lampu bisa berubah; cek ulang di hari H." },
+  { key:"2026-11-04", short:"Rab 4", label:"Rabu, 4 November", sub:"Expo hari 1 · rute Dial", items:[
+    ["07.00","Sarapan di hotel","Makan cukup; makan siang baru pukul 12.00.","mkn"],
+    ["08.30","Ambil badge — B2, Foyer Hall E","Badge buka 08.30. Cek nomor booth di event app; booking slot meeting dengan calon mitra.","log","1.2"],
+    ["09.30–10.45","Booth A: Google → Lenovo → ClassIn → Bitdefender","Pagi = staf booth masih segar, waktu ngobrol lebih panjang.","expo","1.1–1.4 · 3.1–3.3",{b:[1,2,3,4]}],
+    ["10.50–11.10","Sesi IGI, Mustika Wijaya — Stage B","Tambahan. Pembicara Indonesia.","sesi","2.1 · 3.1",{s:1}],
+    ["11.10–11.35","Booth A: AST Technology Asia","","expo","",{b:[5]}],
+    ["11.40–12.00","Sesi edX × UPH — Stage A","Wajib. Kenalan dengan tim UPH.","sesi","2.1–2.3 · 3.1",{s:2}],
+    ["12.00–12.45","Makan siang + sinkronisasi dengan Kustian","Rasapura Masters (The Shoppes MBS, B2) atau kafe di hall. Hitung booth & kontak.","mkn","6.1"],
+    ["12.50–13.10","Sesi Airia — AI sprawl — Stage B","Tambahan. Setelah sesi langsung ke booth Airia.","sesi","2.1 · 4.1",{s:3,b:[6]}],
+    ["13.20–14.25","Booth B: MagicSchool → Novalearn → rotutiA → Cloak → Jamf","5–7 menit per booth.","expo","",{b:[7,8,9,10,11]}],
+    ["14.30–14.50","Sesi Lyceum of the Philippines Univ. — Stage B","Wajib.","sesi","2.1–2.3",{s:4}],
+    ["14.55–15.15","Booth B: Verkada → Samsung","","expo","",{b:[12,13]}],
+    ["15.15–15.30","Istirahat 15 menit","Minum, duduk, cek kuota booth & kontak.","mkn"],
+    ["15.30–16.15","Booth B/C: GSMET → Superhuman → Octopod → Codnut → Dxlab → Splashtop","3–7 menit per booth.","expo","1.1 · 3.1",{b:[14,15,16,17,18,19]}],
+    ["16.20","Kumpul di Foyer Hall E","Gabung kontak, cek duplikasi, pilih bahan diskusi.","log","6.1 · 6.2"],
+    ["16.35","Menuju One Fullerton","Grab 10 menit, atau jalan kaki 25–30 menit via Helix Bridge – Esplanade.","log"],
+    ["17.00–18.15","Diskusi Evaluasi — One Fullerton","3 pertanyaan wajib → 3 rekomendasi + eksperimen. Jawaban diisi di tab Refleksi.","eval","5.1–5.6 · 6.3–6.5"],
+    ["18.30","Makan malam","Lau Pa Sat (10 menit jalan kaki) atau restoran di One Fullerton.","mkn"],
+    ["20.00","Rapikan data di hotel","Input kontak ke spreadsheet bersama, tulis ringkasan sesi (3 insight).","eval","2.3 · 6.1"]
+  ], tip:"Hari 1: 6 jam di lantai pameran → 19 booth + sesi. Nomor booth belum dirilis di situs — cek di event app / peta lantai saat ambil badge, lalu isi di kartu booth." },
+  { key:"2026-11-05", short:"Kam 5", label:"Kamis, 5 November", sub:"Expo hari 2 & pulang", items:[
+    ["07.00","Sarapan & check-out","Titip koper di resepsionis hotel — venue tidak punya penitipan barang.","log"],
+    ["09.30–10.45","Putaran kedua: Google, Lenovo, Bitdefender, AST, Airia","Minta PIC, langkah lanjut, jadwal call. Tutup kekurangan kuota.","expo","3.2 · 3.3 · 1.1",{b:[1,2,4,5,6]}],
+    ["10.45–12.10","Booth C: Lightspeed, Centerm, MWFS, Dynabook, Adobe, Promethean, Uptale, QuestXR, Visang, i-Scream Media, Kahoot!","3–4 menit per booth.","expo","1.1",{b:[20,21,22,23,24,25,26,27,28,29,30]}],
+    ["12.15–12.35","Sesi Mapúa — scaling institutional AI","Tambahan. Cek stage di app.","sesi","2.1 · 4.1",{s:5}],
+    ["12.40","Makan siang cepat + rekap akhir dengan Kustian","Cek total target, kumpulkan brosur, foto bersama.","mkn","6.1 · 6.2"],
+    ["13.45","Ambil koper di hotel → Changi","Taksi 25 menit. Asumsi penerbangan 17.00; tiba di bandara 2 jam sebelumnya.","log"],
+    ["Sore","Terbang pulang ke Jakarta","Di pesawat: susun draf 3 rekomendasi & eksperimen untuk presentasi.","eval","6.4 · 6.5"]
+  ], tip:"Hari 2 pagi 3 jam → 11 booth sisa + putaran kedua ke calon mitra terbaik. Cadangan bila kuota kurang ada di bawah daftar booth." }
+];
+
+const SAPA0 = ["Hey, hi! I'm Dial from Eduvizta, Indonesia — we build a campus platform used by 100-plus universities.",
+               "Hai! Saya Dial dari Eduvizta, Indonesia — kami bikin platform kampus yang dipakai 100-an universitas."];
+
+const DIAL_BOOTHS = [
+ {n:1,name:"Google for Education",p:"A",day:"Rab",codes:"3.2 3.3 4.1",type:"Title Sponsor · Calon mitra · Tren · Pilar: Learn · Intelligence",
+  about:"Solusi Google untuk pendidikan (Workspace, Gemini). Sponsor utama.",rel:"Integrasi Gemini/Workspace ke platform Eduvizta; program partner Google.",
+  people:"Felix Goh (Gemini Adoption Lead SEA) · Stuart Miller (Marketing Lead)",
+  sapa:["Lots of our client campuses already run on Google Workspace.","Banyak kampus klien kami sudah pakai Google Workspace."],
+  gali:["What's the newest Gemini feature for universities?","Fitur Gemini terbaru buat kampus apa nih?","1.3 4.1"],
+  targets:[["How can a campus platform connect Gemini safely with student data?","Platform kampus bisa nyambungin Gemini ke data mahasiswa dengan aman gimana caranya?","3.2"],
+           ["What does it take to join the Google for Education partner programme?","Kalau mau ikut program mitra Google for Education, syaratnya apa?","3.2"]],
+  kolab:["Could we build a Gemini-powered assistant for campus leaders in Indonesia together?","Kira-kira kita bisa bikin bareng asisten berbasis Gemini buat pimpinan kampus di Indonesia?","3.3 4.2"],
+  tutup:["Are Felix Goh or Stuart Miller around for a quick follow-up later?","Felix Goh atau Stuart Miller bisa ditemui buat follow-up nanti?"]},
+ {n:2,name:"Lenovo",p:"A",day:"Rab",codes:"3.2 3.3",type:"Title Sponsor · Calon mitra · Pilar: Enabler · Intelligence",
+  about:"Perangkat & solusi transformasi pendidikan (Lenovo EdVision). Sponsor utama.",rel:"Bundling perangkat + platform untuk kampus Indonesia; AI 'knowledge wizard'.",
+  people:"Sumayyah Mustafa (Regional BD Manager Education GTAP) · Eddie Hui (Digital Innovations Lead)",
+  sapa:["We work with 100-plus campuses in Indonesia that buy both devices and software.","Kami kerja dengan 100-an kampus di Indonesia yang beli perangkat sekaligus software."],
+  gali:["What does Lenovo bring to universities besides hardware?","Selain perangkat, Lenovo nawarin apa ke kampus?","1.3"],
+  targets:[["Do you team up with local software companies for campus bundles in Indonesia?","Kalian kerja bareng perusahaan software lokal buat paket kampus di Indonesia?","3.2"],
+           ["How does your 'knowledge wizard' use AI with campus documents?","'Knowledge wizard' kalian pakai AI buat dokumen kampus gimana?","4.1"]],
+  kolab:["What if we did a device-plus-platform bundle for private campuses back home?","Gimana kalau kita bikin paket perangkat plus platform buat kampus swasta di Indonesia?","3.3 4.2"],
+  tutup:["Could I follow up with Sumayyah Mustafa on education partnerships?","Boleh saya follow-up ke Sumayyah Mustafa soal kemitraan pendidikan?"]},
+ {n:3,name:"ClassIn",p:"A",day:"Rab",codes:"1.3 1.4 4.1",type:"Diamond Sponsor · Belajar · Kompetitor · Pilar: Learn",
+  about:"Ekosistem mengajar-belajar terintegrasi, dipakai 60.000 institusi di 65 negara.",rel:"Skala adopsi & AI di kelas live — pembanding LMS/hybrid learning Eduvizta.",
+  people:"Lara Lai (Director of ClassIn Sync)",
+  sapa:["Sixty thousand institutions — that's huge! We'd love to learn from that.","Enam puluh ribu institusi — gede banget! Kami pengin belajar dari situ."],
+  gali:["Could you show me a live class along with the analytics?","Boleh lihat kelas live-nya sekalian analitiknya?","1.3"],
+  targets:[["How does ClassIn turn live-class data into decisions for teachers?","ClassIn mengubah data kelas live jadi keputusan buat pengajar gimana?","1.4 4.1"],
+           ["What usually makes schools switch to ClassIn?","Biasanya apa yang bikin sekolah pindah ke ClassIn?","1.4 5.1"]],
+  kolab:["Do you connect with campus academic systems — schedules, grades?","Kalian nyambung ke sistem akademik kampus — jadwal, nilai?","3.3"],
+  tutup:["Is Lara Lai the right person to follow up with?","Lara Lai orang yang pas buat follow-up?"]},
+ {n:4,name:"Bitdefender",p:"A",day:"Rab",codes:"3.2 3.3",type:"Exhibitor · Calon mitra · Pilar: Enabler (keamanan)",
+  about:"Pemimpin cybersecurity: pencegahan, deteksi & respons ancaman.",rel:"Kompetensi Cyber security & data privacy Eduvizta — bundling keamanan untuk klien kampus.",
+  people:"",
+  sapa:["Cyber security is one of the things we offer our campus clients.","Keamanan siber salah satu layanan yang kami tawarkan ke klien kampus."],
+  gali:["What threats are hitting universities the most these days?","Ancaman apa yang paling sering menyerang kampus belakangan ini?","1.3 4.1"],
+  targets:[["Do you have a partner programme for education companies in Indonesia?","Ada program mitra buat perusahaan pendidikan di Indonesia?","3.2"],
+           ["How does pricing work for campuses with thousands of users?","Harganya gimana buat kampus yang penggunanya ribuan?","4.2"]],
+  kolab:["Could we bundle your protection with our campus platform?","Perlindungan kalian bisa kami paketkan bareng platform kampus kami?","3.3"],
+  tutup:["Who manages partners for Indonesia?","Siapa yang ngurus mitra untuk Indonesia?"]},
+ {n:5,name:"AST Technology Asia",p:"A",day:"Rab",codes:"3.2 3.3",type:"Exhibitor · Calon mitra · Pilar: Enabler (infra)",
+  about:"Mitra teknologi ICT: solusi, layanan & infrastruktur.",rel:"Kompetensi Cloud & Campus networking Eduvizta — kolaborasi infra/SI di Indonesia.",
+  people:"",
+  sapa:["We do cloud and campus networking for Indonesian universities too.","Kami juga ngerjain cloud dan jaringan kampus untuk universitas di Indonesia."],
+  gali:["What kind of ICT projects do you do most for schools?","Proyek ICT apa yang paling sering kalian kerjakan buat sekolah?","1.3"],
+  targets:[["Are you active in Indonesia? Do you work with campus software companies?","Kalian aktif di Indonesia? Kerja bareng perusahaan software kampus nggak?","3.2 3.3"],
+           ["What's the trickiest part of a campus infrastructure project?","Bagian paling ribet dari proyek infrastruktur kampus apa?","5.1"]],
+  kolab:["What if we combined your infrastructure and our platform into a smart-campus package?","Gimana kalau infrastruktur kalian dan platform kami digabung jadi paket smart campus?","3.3 4.2"],
+  tutup:["Who should I talk to about regional partnerships?","Soal kemitraan regional, saya ngobrol sama siapa?"]},
+ {n:6,name:"Airia",p:"A",day:"Rab",codes:"4.1 5.3 3.2",type:"Silver Sponsor · Calon mitra · Tren · Pilar: Govern · Intelligence",
+  about:"Platform AI enterprise untuk menemukan, mengamankan & mengatur penggunaan AI/agent.",rel:"Tata kelola AI (AI governance) untuk AI assistant di tiap modul Eduvizta.",
+  people:"Mckenzie Mathieson (Sales Manager) · Nithish Rajan (Head of Solutions APAC)",
+  sapa:["We're adding AI assistants to every module, so AI governance is on our minds a lot.","Kami lagi nambahin asisten AI di tiap modul, jadi tata kelola AI lagi sering kami pikirin."],
+  gali:["So what exactly is 'AI sprawl', and how should a campus handle it?","Jadi 'AI sprawl' itu apa sih, dan kampus harus gimana?","4.1"],
+  targets:[["How do you see which AI tools and agents staff are actually using?","Gimana kalian bisa lihat tool dan agen AI apa aja yang dipakai staf?","5.3"],
+           ["If a campus could set just one AI rule first, what should it be?","Kalau kampus cuma bisa bikin satu aturan AI dulu, sebaiknya apa?","5.3"]],
+  kolab:["Could Airia govern the AI agents inside a campus platform like ours?","Airia bisa ngatur agen AI di dalam platform kampus kayak punya kami?","3.2"],
+  tutup:["Could I get Mckenzie Mathieson's contact?","Boleh minta kontaknya Mckenzie Mathieson?"]},
+ {n:7,name:"MagicSchool AI",p:"B",day:"Rab",codes:"4.1 4.2",type:"Exhibitor · Belajar · Tren · Pilar: Learn",
+  about:"Platform AI untuk guru K-12; 7 juta+ pendidik, 80 tools.",rel:"Adopsi AI massal oleh pendidik — inspirasi AI assistant untuk dosen.",
+  people:"Elise Seymour (Manager of Solutions Architecture)",
+  sapa:["We're designing AI assistants for lecturers — and you're already at 7 million educators!","Kami lagi rancang asisten AI buat dosen — dan kalian sudah dipakai 7 juta pendidik!"],
+  gali:["Which tool do teachers keep coming back to every day?","Tool mana yang dipakai guru tiap hari?","4.1"],
+  targets:[["How do you keep the AI output safe and accurate for classrooms?","Gimana menjaga hasil AI-nya tetap aman dan akurat buat kelas?","5.3"]],
+  kolab:["Ever thought about a university version for Indonesia?","Pernah kepikiran bikin versi kampus buat Indonesia?","3.3 4.2"],
+  tutup:["Could I get Elise Seymour's contact?","Boleh minta kontaknya Elise Seymour?"]},
+ {n:8,name:"Novalearn",p:"B",day:"Rab",codes:"1.3 5.1",type:"Exhibitor · Belajar · Pilar: Learn",
+  about:"Solusi AI untuk sekolah, guru & siswa (Hong Kong).",rel:"Fitur AI untuk kelas & administrasi — 'human in the loop'.",
+  people:"Brian Thomas (AI Implementation Lead)",
+  sapa:["I really like the 'human in the loop' idea for AI in schools.","Saya suka banget ide 'human in the loop' buat AI di sekolah."],
+  gali:["When should a person stay in the loop, and when can the AI just do it?","Kapan manusia harus tetap ikut, dan kapan AI boleh jalan sendiri?","5.1"],
+  targets:[["Which admin task does your AI handle best?","Tugas administrasi apa yang paling jago ditangani AI kalian?","1.3 4.2"]],
+  kolab:["Would you be open to partners in Southeast Asia?","Kalian terbuka buat mitra di Asia Tenggara?","3.3"],
+  tutup:["Could I get Brian Thomas's contact?","Boleh minta kontaknya Brian Thomas?"]},
+ {n:9,name:"rotutiA",p:"B",day:"Rab",codes:"4.2 5.2",type:"Exhibitor · Belajar · Ide produk · Pilar: Learn",
+  about:"Spin-off NTU Singapura: adaptive learning yang terikat silabus.",rel:"AI yang dibatasi silabus — model untuk AI tutor per mata kuliah.",
+  people:"",
+  sapa:["An AI tutor that sticks to the syllabus is exactly what our lecturers keep asking for.","Tutor AI yang nempel ke silabus persis yang sering diminta dosen-dosen kami."],
+  gali:["Why go syllabus-bound instead of using a general model?","Kenapa milih AI yang terikat silabus, bukan model umum?","5.2"],
+  targets:[["How do lecturers upload and control the syllabus content?","Dosen upload dan ngatur isi silabusnya gimana?","1.3 4.2"]],
+  kolab:["Could your engine plug into an LMS in Indonesia?","Mesin kalian bisa dicolok ke LMS di Indonesia?","3.3"],
+  tutup:["Who should I keep in touch with?","Sebaiknya saya tetap kontak dengan siapa?"]},
+ {n:10,name:"Cloak Solutions",p:"B",day:"Rab",codes:"1.2 3.2",type:"Exhibitor · Belajar · Calon mitra · Pilar: Enabler (keamanan)",
+  about:"Perusahaan Singapura: cybersecurity & solusi AI untuk pendidikan, kesehatan, keuangan.",rel:"Keamanan + AI untuk sektor pendidikan; potensi kolaborasi regional.",
+  people:"",
+  sapa:["We provide security services to campus clients in Indonesia.","Kami juga kasih layanan keamanan ke klien kampus di Indonesia."],
+  gali:["What security gaps do you find most often on campuses?","Celah keamanan apa yang paling sering kalian temukan di kampus?","1.3 4.1"],
+  targets:[["How are you using AI in cyber security for schools?","Kalian pakai AI di keamanan siber buat sekolah gimana?","4.1"]],
+  kolab:["Would you be open to a regional collaboration?","Kalian terbuka buat kolaborasi regional?","3.2"],
+  tutup:["Who's the best contact for that?","Kontak yang paling pas untuk itu siapa?"]},
+ {n:11,name:"Jamf",p:"B",day:"Rab",codes:"1.3 1.2",type:"Gold Sponsor · Belajar · Pilar: Enabler",
+  about:"Manajemen & keamanan perangkat Apple untuk institusi pendidikan.",rel:"Pola manajemen perangkat skala besar.",
+  people:"Mat Pullen (Dir. Product Marketing – Education) · Francesco Garbellini (Key Account Mgr)",
+  sapa:["Device management keeps coming up with our campus clients.","Soal manajemen perangkat sering banget ditanyakan klien kampus kami."],
+  gali:["What changes when a campus manages thousands of devices centrally?","Apa yang berubah kalau kampus ngelola ribuan perangkat secara terpusat?","1.3"],
+  targets:[["How do universities justify the cost?","Gimana kampus meyakinkan diri bahwa biayanya sepadan?","5.1"]],
+  kolab:["Do you have partners in Indonesia?","Kalian punya mitra di Indonesia?","3.3"],
+  tutup:["Could I get Mat Pullen's or Francesco Garbellini's contact?","Boleh minta kontaknya Mat Pullen atau Francesco Garbellini?"]},
+ {n:12,name:"Verkada",p:"B",day:"Rab",codes:"1.3 4.1",type:"Silver Sponsor · Belajar · Tren · Pilar: Enabler",
+  about:"Keamanan fisik berbasis cloud (kamera, akses, dll.) untuk institusi pendidikan.",rel:"Konvergensi keamanan fisik + data kampus (smart campus).",
+  people:"Blake Day (Head of ASEAN)",
+  sapa:["Smart campus is something we're exploring — is Blake Day around?","Smart campus lagi kami jajaki — Blake Day ada nggak?"],
+  gali:["How does physical security data connect with other campus systems?","Data keamanan fisik nyambung ke sistem kampus lain gimana?","1.3 4.1"],
+  targets:[["Which feature do campuses in ASEAN love the most?","Fitur apa yang paling disukai kampus di ASEAN?","4.1"]],
+  kolab:["Could your system share data with a campus platform — say, for attendance?","Sistem kalian bisa berbagi data ke platform kampus — misalnya buat presensi?","3.3 4.2"],
+  tutup:["Who's the best contact for that?","Kontak yang paling pas untuk itu siapa?"]},
+ {n:13,name:"Samsung",p:"B",day:"Rab",codes:"1.3 1.2",type:"Diamond Sponsor · Belajar · Pilar: Enabler",
+  about:"Display, tablet & perangkat untuk pendidikan. Sponsor Diamond.",rel:"Perangkat kelas + kemungkinan integrasi konten/dashboard.",
+  people:"Timothy Tan (keynote)",
+  sapa:["Our client campuses buy a lot of classroom displays.","Kampus klien kami banyak beli display untuk kelas."],
+  gali:["How do your classroom devices work with other campus platforms?","Perangkat kelas kalian bisa kerja bareng platform kampus lain gimana?","1.3"],
+  targets:[["What's new for universities, not just schools?","Ada apa yang baru buat kampus, bukan cuma sekolah?","4.1"]],
+  kolab:["Could our leadership dashboards run on your displays?","Dashboard pimpinan kami bisa jalan di display kalian?","3.3 4.2"],
+  tutup:["Who's the best contact for education?","Kontak yang pas untuk sektor pendidikan siapa?"]},
+ {n:14,name:"The Graduate School of Mgmt & Education Technology",short:"GSMET (Jepang)",p:"B",day:"Rab",codes:"3.2 5.3",type:"Exhibitor · Calon mitra (akademik) · Pilar: Bisnis",
+  about:"Sekolah pascasarjana online Jepang yang fokus pada Education DX; kini punya jalur bahasa Inggris.",rel:"Kolaborasi pelatihan Education DX untuk pimpinan kampus klien Eduvizta.",
+  people:"Prof. Haruo Takemura (President)",
+  sapa:["A fully online grad school just for Education DX — that's such a unique idea.","Sekolah pascasarjana online khusus Education DX — idenya unik banget."],
+  gali:["What do your students — mostly leaders, right? — struggle with most in digital transformation?","Mahasiswa kalian — kebanyakan pimpinan, ya? — paling kesulitan di bagian mana dalam transformasi digital?","5.1"],
+  targets:[["Could we co-design an Education DX programme for campus leaders in Indonesia?","Kira-kira kita bisa rancang bareng program Education DX buat pimpinan kampus di Indonesia?","3.2 5.3"]],
+  kolab:["Would Prof. Takemura be up for a quick online call?","Prof. Takemura kira-kira mau ngobrol online sebentar?","3.3"],
+  tutup:["Who should I keep in touch with?","Sebaiknya saya tetap kontak dengan siapa?"]},
+ {n:15,name:"Superhuman (ex-Grammarly)",p:"C",day:"Rab",codes:"4.1",type:"Exhibitor · Tren · Pilar: Intelligence",
+  about:"Platform produktivitas AI (dulu Grammarly), terintegrasi dengan 1 juta+ aplikasi.",rel:"Tren agen AI yang 'menempel' di mana pun pengguna bekerja.",people:"",
+  sapa:["AI writing tools are everywhere on campus now.","Tool menulis AI sekarang ada di mana-mana di kampus."],
+  gali:["How are universities licensing these for staff and students?","Kampus melisensikan ini buat staf dan mahasiswa gimana?","4.1"]},
+ {n:16,name:"Octopod Technology",p:"C",day:"Rab",codes:"1.1 4.1",type:"Exhibitor · Belajar · Pilar: Intelligence",
+  about:"AI, alat digital interaktif & insight berbasis data untuk personalisasi belajar.",rel:"Pembanding Dashboard Intelligent AI.",people:"",
+  sapa:["We're building an AI dashboard for campus leaders.","Kami lagi bikin dashboard AI buat pimpinan kampus."],
+  gali:["What insight do school leaders ask for the most?","Insight apa yang paling sering diminta pimpinan sekolah?","4.1"]},
+ {n:17,name:"Codnut (Questbook)",p:"C",day:"Rab",codes:"1.1 4.2",type:"Exhibitor · Belajar · Pilar: Learn",
+  about:"Platform AI authoring: pendidik membuat konten interaktif sesuai kurikulum secara instan.",rel:"AI pembuat konten untuk LMS & Lab Center.",people:"",
+  sapa:["Lecturers want to make content faster.","Dosen pengin bikin konten lebih cepat."],
+  gali:["How do you keep AI-made content in line with the curriculum?","Gimana konten buatan AI tetap sesuai kurikulum?","4.2"]},
+ {n:18,name:"Dxlab (dthinkr.ai)",p:"C",day:"Rab",codes:"1.1 4.2",type:"Exhibitor · Belajar · Pilar: Learn",
+  about:"SaaS yang memasukkan AI ke proses design thinking.",rel:"Ide alat inovasi/kewirausahaan untuk kampus.",people:"",
+  sapa:["Our clients want to teach innovation and entrepreneurship.","Klien kami pengin ngajarin inovasi dan kewirausahaan."],
+  gali:["Which part of design thinking does AI speed up the most?","Bagian design thinking mana yang paling dipercepat AI?","4.2"]},
+ {n:19,name:"Splashtop",p:"C",day:"Rab",codes:"1.1 1.2",type:"Exhibitor · Belajar · Pilar: Enabler",
+  about:"Remote access, remote support & endpoint management.",rel:"Akses lab jarak jauh & dukungan IT kampus.",people:"",
+  sapa:["Lots of campuses ask us about remote access to labs.","Banyak kampus nanya ke kami soal akses lab dari jauh."],
+  gali:["How do universities use remote access for their computer labs?","Kampus pakai remote access buat lab komputer gimana?","1.3"]},
+ {n:20,name:"Lightspeed Systems",p:"C",day:"Kam",codes:"1.1 1.2",type:"Exhibitor · Belajar · Pilar: Enabler",
+  about:"Keamanan digital siswa, filter, manajemen perangkat & analitik.",rel:"Referensi manajemen perangkat & analitik penggunaan aplikasi.",people:"",
+  sapa:["Software spending is a big question for our campuses.","Belanja software jadi pertanyaan besar buat kampus klien kami."],
+  gali:["Which usage data helps schools cut wasted software spend?","Data pemakaian apa yang bantu sekolah memangkas software yang mubazir?","4.1"]},
+ {n:21,name:"Centerm",p:"C",day:"Kam",codes:"1.1 1.2",type:"Exhibitor · Belajar · Pilar: Enabler (infra)",
+  about:"Cloud terminal & endpoint cerdas untuk pendidikan (Fujian Centerm).",rel:"Lab komputer berbiaya rendah berbasis cloud.",people:"",
+  sapa:["Computer labs are pricey for small campuses.","Lab komputer itu mahal buat kampus kecil."],
+  gali:["What's the total cost per seat compared with normal PCs?","Total biaya per kursi dibanding PC biasa berapa?","1.3"]},
+ {n:22,name:"Mobile Workforce Solution",p:"C",day:"Kam",codes:"1.1 1.2",type:"Exhibitor · Belajar · Pilar: Enabler",
+  about:"Transformasi digital, mobilitas, AV & smart workplace (Singapura, sejak 2009).",rel:"Ide paket smart classroom/kampus.",people:"",
+  sapa:["Smart classrooms keep coming up with our clients.","Smart classroom sering banget diminta klien kami."],
+  gali:["Which smart-campus project paid off fastest for clients?","Proyek smart campus mana yang paling cepat balik modal buat klien?","4.1"]},
+ {n:23,name:"Dynabook",p:"C",day:"Kam",codes:"1.1 1.2",type:"Silver Sponsor · Belajar · Pilar: Enabler",
+  about:"Laptop (dulu Toshiba) untuk pendidikan.",rel:"Peluang bundling perangkat + lisensi platform.",people:"",
+  sapa:["Device bundles could really help our campus clients.","Paket perangkat bisa bantu banget klien kampus kami."],
+  gali:["Do you do education bundles with software partners?","Ada paket pendidikan bareng mitra software?","3.2"]},
+ {n:24,name:"Adobe",p:"C",day:"Kam",codes:"1.1 4.1",type:"Gold Sponsor · Belajar · Pilar: Learn",
+  about:"Solusi kreatif & digital; program Adobe Creative Campus.",rel:"Literasi digital & konten kreatif kampus.",people:"",
+  sapa:["Digital creativity matters more and more for graduates.","Kreativitas digital makin penting buat lulusan."],
+  gali:["What does it take for a campus to become a 'Creative Campus'?","Kampus butuh apa supaya jadi 'Creative Campus'?","4.1"]},
+ {n:25,name:"Promethean + STboard",p:"C",day:"Kam",codes:"1.1 1.2",type:"Exhibitor · Belajar · Pilar: Enabler",
+  about:"Teknologi interaktif kelas (panel interaktif) sejak 1997.",rel:"Perangkat kelas pintar — integrasi presensi/LMS.",people:"",
+  sapa:["Interactive panels are in a lot of our client classrooms.","Panel interaktif ada di banyak kelas klien kami."],
+  gali:["Can your panels connect to an LMS or an attendance system?","Panel kalian bisa nyambung ke LMS atau sistem presensi?","1.3"]},
+ {n:26,name:"Uptale",p:"C",day:"Kam",codes:"1.1 4.1",type:"Exhibitor · Tren · Pilar: Learn",
+  about:"Platform immersive learning: VR interaktif dari foto 360° tanpa coding.",rel:"Tren XR untuk praktikum & Lab Center.",people:"",
+  sapa:["Our Lab Center module could really use immersive content.","Modul Lab Center kami cocok banget pakai konten imersif."],
+  gali:["Which subjects get the most out of VR?","Mata kuliah apa yang paling dapat manfaat dari VR?","4.1"]},
+ {n:27,name:"QuestXR",p:"C",day:"Kam",codes:"1.1 4.1",type:"Exhibitor · Tren · Pilar: Learn",
+  about:"Platform AI untuk membuat pengalaman belajar imersif tanpa coding.",rel:"AI + XR untuk konten pembelajaran.",people:"",
+  sapa:["Lecturers want XR, but without coding.","Dosen pengin XR, tapi tanpa coding."],
+  gali:["How long does a lecturer need to build their first XR lesson?","Dosen butuh berapa lama buat bikin pelajaran XR pertamanya?","4.1"]},
+ {n:28,name:"Visang Education",p:"C",day:"Kam",codes:"1.1 4.1",type:"Exhibitor · Tren · Pilar: Learn",
+  about:"EdTech global Korea: platform belajar berbasis AI & solusi digital.",rel:"Tren buku teks digital AI dari Korea.",people:"",
+  sapa:["Indonesia is talking about AI-based learning materials too.","Indonesia juga lagi ramai bahas bahan ajar berbasis AI."],
+  gali:["What did Korea's AI textbook rollout teach you?","Pelajaran apa dari peluncuran buku teks AI di Korea?","4.1"]},
+ {n:29,name:"i-Scream Media",p:"C",day:"Kam",codes:"1.1 4.1",type:"Exhibitor · Tren · Pilar: Learn",
+  about:"Perusahaan pendidikan besar Korea: platform mengajar digital, akademi guru online, buku teks AI.",rel:"Transformasi digital pendidikan publik skala nasional.",people:"",
+  sapa:["Digital transformation at national scale is fascinating to us.","Transformasi digital skala nasional menarik banget buat kami."],
+  gali:["How do you train teachers at that scale?","Gimana cara kalian melatih guru dalam skala sebesar itu?","4.1"]},
+ {n:30,name:"Kahoot!",p:"C",day:"Kam",codes:"1.1 1.2",type:"Exhibitor · Belajar · Pilar: Learn",
+  about:"Platform pembelajaran & engagement berbasis kuis.",rel:"Gamifikasi untuk Online Test & LMS.",people:"",
+  sapa:["Our online test module could use more fun.","Modul ujian online kami butuh lebih seru."],
+  gali:["How do universities use Kahoot! beyond quizzes?","Kampus pakai Kahoot! buat apa aja selain kuis?","4.2"]}
+];
+const CADANGAN = "Startup City (60 startup) · Padlet · Chunjae Education · Commontown · Snaildy · Blocksi · Deledao · SunVote · Labquip Asia · AIoScout";
+
+const DIAL_SESSIONS = [
+ {day:"Rab 4 Nov",time:"10.50–11.10",wajib:false,stage:"Stage B · Show & Tell",title:"Rooting education in cultural wisdom, branching into AI futures",
+  who:"Mustika Wijaya — Member, Ikatan Guru Indonesia (IGI)",why:"Pembicara Indonesia: AI + nilai budaya. Kesempatan networking dengan komunitas IGI.",
+  note:"Selesai 11.10, jalan ke Stage A untuk sesi edX × UPH.",
+  q:[["Which AI tools fit best with Indonesian teachers' daily work?","Tool AI mana yang paling cocok dengan pekerjaan harian guru di Indonesia?"],
+     ["How does IGI help teachers adopt technology?","Bagaimana IGI membantu guru mengadopsi teknologi?"],
+     ["Could IGI work with EdTech companies on teacher training?","Bisakah IGI bekerja sama dengan perusahaan EdTech untuk pelatihan guru?"]]},
+ {day:"Rab 4 Nov",time:"11.40–12.00",wajib:true,stage:"Stage A · TECH Showcase",title:"From sketchbook to storefront: how edX turned student designers into founders",
+  who:"Anastasia Patricia (Entrepreneurship AoE Coordinator) + mahasiswa Universitas Pelita Harapan",why:"Kampus Indonesia (UPH) + edX: micro-credential & kewirausahaan. Peluang networking kampus Indonesia.",
+  note:"Kenalan dengan tim UPH setelah sesi.",
+  q:[["How did UPH make edX courses count toward students' credits?","Bagaimana UPH membuat kursus edX diakui sebagai SKS mahasiswa?"],
+     ["What support did students need to turn ideas into businesses?","Dukungan apa yang dibutuhkan mahasiswa untuk mengubah ide menjadi bisnis?"],
+     ["Could other Indonesian campuses copy this model?","Bisakah kampus Indonesia lain meniru model ini?"]]},
+ {day:"Rab 4 Nov",time:"12.50–13.10",wajib:false,stage:"Stage B · TECH Showcase",title:"AI sprawl: the hidden risk threatening your school",
+  who:"Mckenzie Mathieson — Sales Manager, Airia",why:"Tata kelola AI untuk AI assistant di tiap modul Eduvizta.",
+  note:"Setelah sesi, langsung ke booth Airia.",
+  q:[["How can a campus see which AI tools staff already use?","Bagaimana kampus mengetahui tool AI apa yang sudah dipakai staf?"],
+     ["What is the first policy to stop AI sprawl?","Kebijakan pertama apa untuk menghentikan AI sprawl?"],
+     ["How do you balance control with freedom to experiment?","Bagaimana menyeimbangkan kontrol dengan kebebasan bereksperimen?"]]},
+ {day:"Rab 4 Nov",time:"14.30–14.50",wajib:true,stage:"Stage B · TECH Showcase",title:"Tech-driven, human-led: scaling institutional growth and digital learning at LPU",
+  who:"Dr Elmer Matel & Bernard M. Cutchon — Lyceum of the Philippines University",why:"Studi kasus transformasi digital perguruan tinggi ASEAN — mirip pasar Eduvizta.",
+  note:"Kenalan dengan pembicara: calon klien/rujukan regional.",
+  q:[["Which system did you integrate first, and why?","Sistem mana yang pertama Anda integrasikan, dan mengapa?"],
+     ["How did you get faculty to adopt the new tools?","Bagaimana Anda membuat dosen mau memakai tools baru?"],
+     ["Which result convinced your leadership to keep investing?","Hasil apa yang meyakinkan pimpinan untuk terus berinvestasi?"]]},
+ {day:"Kam 5 Nov",time:"12.15–12.35",wajib:false,stage:"Stage A/B (cek app) · Show & Tell",title:"The Mapúa blueprint: scaling institutional AI from vision to velocity",
+  who:"Geldof Resuello — Head of Instructional Technology, Mapúa University",why:"Cetak biru AI tingkat institusi di universitas ASEAN — bahan visi 'digital to intelligent'.",
+  note:"Tambahan hari 2. Setelah sesi langsung makan siang & kumpul.",
+  q:[["Where did Mapúa start: teaching, operations, or data?","Mapúa memulai dari mana: pengajaran, operasional, atau data?"],
+     ["How did you govern AI across the whole university?","Bagaimana Anda mengatur AI di seluruh universitas?"],
+     ["Which metric shows that institutional AI is working?","Metrik apa yang menunjukkan AI institusi berhasil?"]]}
+];
+const SESI_CADANGAN = [
+ "Rab 09.40 · Stage A — Show & Tell · Sri KDU — AI, robotics & community engagement (Jennifer Danaraj)",
+ "Rab 10.00 · Stage B — Show & Tell · APU — WonderVerse: AR untuk pembelajaran (Siti Azreena Mubin)",
+ "Rab 10.20 · Stage B — TECH Showcase · Jamf — device choice & student outcomes (Mat Pullen)",
+ "Rab 10.50 · Stage A — TECH Showcase · Novalearn — In, on, or out of the loop: AI in schools (Brian Thomas)",
+ "Rab 12.00 · Stage B — TECH Showcase · TrainerCentral (Praveen Kumar)",
+ "Rab 12.30 · Stage A — TECH Showcase · MagicSchool (Elise Seymour)",
+ "Rab 13.20 · Stage B — Show & Tell · NYU Shanghai — agentic classroom (Jesse Yu)",
+ "Rab 14.40 · Stage A — TECH Showcase · Lenovo — Enterprise knowledge wizard (Eddie Hui)",
+ "Rab 15.40 · Stage B — Show & Tell · NTU — agentic AI untuk literasi informasi",
+ "Kam 10.00 · cek app — TECH Showcase · Cidi Labs — engaging, accessible Canvas courses (Bob Cupitt)",
+ "Kam 12.20 · cek app — Show & Tell · IGI — STEM lewat project based learning (Tia Anggraini)",
+ "Kam 14.20 · cek app — TECH Showcase · Novana — turning school data into improvement (Ni Kang)",
+ "Kam 14.50 · cek app — TECH Showcase · Evolve Innovative Solutions — creative AI (Azhar Malik)",
+ "Kam 15.20 · cek app — Show & Tell · NUS Libraries — AI sense maker (Eng Aun Cheng)"
+];
+
+const PITCH = ["Hey! I'm Dial from Eduvizta — we're a tech company from Indonesia. We build a platform that runs pretty much everything on campus: admissions, academics, finance, HR, the LMS and dashboards for leaders, all on one set of data. We work with 100-plus campuses across 15 provinces. I'm here to see what's new and find good partners for the Indonesian market.",
+ "Hai! Saya Dial dari Eduvizta — perusahaan teknologi dari Indonesia. Kami bikin platform yang menjalankan hampir semua urusan kampus: PMB, akademik, keuangan, SDM, LMS, dan dashboard pimpinan, semuanya di satu data. Kami kerja dengan 100-an kampus di 15 provinsi. Saya di sini mau lihat hal-hal baru dan cari mitra yang pas untuk pasar Indonesia."];
+const FACTS = [
+ ["Skala","100+ kampus aktif · 15 provinsi · 2 negara · support 24/7"],
+ ["Integrasi","40+ aplikasi terintegrasi · 10+ payment gateway · PDDikti & SISTER"],
+ ["5 pilar","Operate · Serve · Learn · Govern · Intelligence & Connect"],
+ ["Pembeda","BPR (perbaiki proses), konfigurasi bukan hard-code, cloud & continuous improvement"],
+ ["AI","Executive dashboard, tanya data dengan bahasa sehari-hari, prediksi mahasiswa berisiko DO"]
+];
+const PHRASES = [
+ ["Tukar kontak & penutup","1.2 3.1",[
+  ["Mind if we swap cards? Or I can scan your LinkedIn QR.","Boleh tukar kartu nama? Atau saya scan QR LinkedIn-nya aja."],
+  ["Thanks so much — this was super helpful!","Makasih banyak ya — ini membantu banget!"],
+  ["I'll drop you an email this week.","Minggu ini saya kirim email ya."]]],
+ ["Izin rekam, foto & minta materi","1.3 2.2",[
+  ["Mind if I record our chat on my phone? It's just for my notes.","Boleh saya rekam obrolan ini di HP? Cuma buat catatan saya."],
+  ["Okay if I snap a quick photo of the screen?","Boleh saya foto layarnya sebentar?"],
+  ["Got a brochure or a deck I could grab? A QR code works too.","Ada brosur atau materi yang bisa saya bawa? QR code juga boleh."],
+  ["No worries at all — I'll just take notes.","Nggak apa-apa kok — saya catat aja."]]],
+ ["Ngobrol dengan delegasi kampus","3.1 4.1",[
+  ["Hi! Where are you from? What brings you here?","Hai! Dari mana? Ke sini cari apa?"],
+  ["What's the biggest digital headache on your campus right now?","Masalah digital paling bikin pusing di kampus Anda sekarang apa?"],
+  ["Do your academic and finance systems actually talk to each other?","Sistem akademik dan keuangan di tempat Anda sudah nyambung belum?"]]],
+ ["Penyelamat obrolan","",[
+  ["Sorry, could you say that again a bit slower?","Maaf, bisa diulang sedikit lebih pelan?"],
+  ["So you mean…? Just want to make sure I got it.","Maksudnya…? Biar saya yakin nangkep."],
+  ["Could you write that down for me?","Bisa tolong ditulis?"],
+  ["Sorry, I've got a session to catch — can I swing by later?","Maaf, saya mau kejar sesi dulu — nanti saya mampir lagi ya?"]]]
+];
+
+const CHECK = [
+ ["Eksplorasi Exhibitor & Teknologi",[
+  ["1.1","Kunjungi min. 60 booth (30/delegasi) — prioritas AI, EdTech, platform pendidikan, startup"],
+  ["1.2","Kumpulkan identitas perusahaan, nomor booth & kontak bisnis"],
+  ["1.3","Dokumentasikan min. 15 produk: masalah, pendekatan, foto/demo, materi"],
+  ["1.4","Identifikasi min. 5 produk/pendekatan kompetitor"]]],
+ ["Show & Tell / TECH Showcase",[
+  ["2.1","Tiap delegasi ikut min. 2 sesi relevan, topik berbeda (total 4)"],
+  ["2.2","Rekam jika diizinkan; jika tidak, catat materi"],
+  ["2.3","Ringkasan B. Indonesia per sesi: min. 3 insight + relevansi untuk EDU"]]],
+ ["Networking & Kolaborasi",[
+  ["3.1","Kumpulkan min. 60 kontak bisnis unik (kartu nama / kontak digital)"],
+  ["3.2","Identifikasi min. 10 calon mitra + PIC yang bisa dihubungi"],
+  ["3.3","Peluang kerja sama di Indonesia: reseller, distributor, integrasi, co-development"]]],
+ ["Tren & Masa Depan EDU",[
+  ["4.1","Min. 5 tren EdTech & AI dari temuan langsung + implikasinya"],
+  ["4.2","Usulkan min. 5 ide produk / layanan / model bisnis baru"],
+  ["4.3","Pilih 3 peluang strategis: alasan, manfaat, tantangan"]]],
+ ["Tantangan Cara Berpikir",[
+  ["5.1","Min. 3 temuan yang menantang asumsi lama"],
+  ["5.2","Min. 2 perusahaan dengan pendekatan fundamental berbeda"],
+  ["5.3","Min. 2 kemampuan baru yang perlu dibangun EDU + langkah awal"],
+  ["5.4","Pertanyakan min. 1 kebiasaan engineering/operasional EDU"],
+  ["5.5","Jawab: jika EDU dibangun dari nol 2026, apa yang dirancang beda?"],
+  ["5.6","Rumuskan 1 eksperimen kecil: hipotesis, cara uji, indikator"]]],
+ ["Hasil Akhir & Tindak Lanjut",[
+  ["6.1","Gabungkan kontak, data exhibitor & dokumentasi tanpa duplikasi"],
+  ["6.2","Kumpulkan brosur, rekaman/catatan sesi & ringkasan"],
+  ["6.3","Diskusi evaluasi sore di One Fullerton"],
+  ["6.4","3 rekomendasi tindak lanjut + PJ + langkah pertama"],
+  ["6.5","Tiap delegasi presentasikan 1 eksperimen (uji 1–2 minggu)"]]]
+];
+
+const REFL = [
+ ["Tren & Ide Produk","4.1 4.2 4.3",[
+  ["tren","Tren yang saya lihat langsung → implikasi untuk EDU","4.1","Contoh: AI governance mulai jadi menu wajib → modul AI Eduvizta perlu log & kebijakan pemakaian."],
+  ["ide","Ide produk / layanan / model bisnis baru","4.2",""],
+  ["peluang","Peluang strategis terbaik (alasan · manfaat · tantangan)","4.3",""]]],
+ ["Tantangan Cara Berpikir","5.1–5.5",[
+  ["t51","Asumsi lama yang tertantang (keyakinan · bukti baru · perlu berubah?)","5.1",""],
+  ["t52","Perusahaan dengan pendekatan fundamental berbeda","5.2",""],
+  ["t53","Kemampuan baru yang perlu dibangun EDU + langkah awal","5.3",""],
+  ["t54","Kebiasaan engineering/operasional yang dipertanyakan + alternatif","5.4",""],
+  ["t55","Jika EDU dibangun dari nol 2026, satu hal yang dirancang beda","5.5",""]]],
+ ["Eksperimen Kecil Saya","5.6 6.5",[
+  ["e_judul","Judul eksperimen","5.6","",true],
+  ["e_hip","Hipotesis — jika kita … maka …","",""],
+  ["e_cara","Cara pengujian (bisa diuji dalam 1–2 minggu di EDU)","",""],
+  ["e_butuh","Kebutuhan belajar / sumber daya","",""],
+  ["e_ind","Indikator keberhasilan","",""],
+  ["e_pj","PJ & langkah pertama","",""]]],
+ ["Diskusi Evaluasi · One Fullerton","6.3 6.4",[
+  ["v1","1. Apa yang paling mengejutkan dari teknologi atau pendekatan yang dilihat hari ini?","",""],
+  ["v2","2. Apa yang membuat kita perlu mempertanyakan cara EDU bekerja sekarang?","",""],
+  ["v3","3. Apa satu hal yang ingin kita lakukan berbeda setelah pulang?","",""],
+  ["v_rek","3 rekomendasi tindak lanjut (PJ · langkah pertama)","6.4",""]]],
+ ["Catatan bebas","",[
+  ["bebas","Apa saja yang perlu diingat","",""]]]
+];
+
+const K_SESSIONS = [
+ {day:"Rab 4 Nov",time:"11.10",wajib:true,stage:"Stage B",title:"Zoho Creator",who:"",why:"Sesi wajib Delegasi 1.",note:"Setelah sesi, lanjut ke booth Zoho.",q:[]},
+ {day:"Rab 4 Nov",time:"13.40",wajib:false,stage:"Stage B",title:"D2L Brightspace",who:"",why:"Tambahan: tren LMS.",note:"",q:[]},
+ {day:"Rab 4 Nov",time:"14.10",wajib:true,stage:"Stage A",title:"Moodle",who:"",why:"Sesi wajib Delegasi 1.",note:"Tanyakan program Moodle Certified Partner.",q:[["Could you tell me about the Moodle Certified Partner programme?","Bisa jelaskan program Moodle Certified Partner?"]]},
+ {day:"Kam 5 Nov",time:"10.50",wajib:false,stage:"cek stage di app",title:"Canvas — flexible learning pathways",who:"",why:"Tambahan: tren LMS.",note:"",q:[]},
+ {day:"Kam 5 Nov",time:"11.20",wajib:false,stage:"cek stage di app",title:"NovaEd — What kind of school does your system let you be?",who:"",why:"Tambahan: cara berpikir (5.1).",note:"",q:[]}
+];
+const GEN = {
+ d4:[
+  ["07.00","Sarapan di hotel","Makan cukup; makan siang baru pukul 12.00.","mkn"],
+  ["08.30","Ambil badge — B2, Foyer Hall E","Badge buka 08.30. Cek nomor booth di event app; booking slot meeting.","log","1.2"],
+  ["09.30","Expo buka — keliling booth","Pagi = staf booth masih segar, waktu ngobrol lebih panjang.","expo"],
+  ["12.00","Makan siang + sinkronisasi tim","Rasapura Masters (The Shoppes MBS, B2) atau kafe di hall. Hitung booth & kontak.","mkn","6.1"],
+  ["15.15","Istirahat 15 menit","Minum, duduk, cek catatan.","mkn"],
+  ["15.30","Booth lanjutan","3–7 menit per booth.","expo"],
+  ["16.20","Kumpul di Foyer Hall E","Gabung kontak, cek duplikasi, pilih bahan diskusi.","log","6.1 · 6.2"],
+  ["16.35","Menuju One Fullerton","Grab 10 menit, atau jalan kaki 25–30 menit via Helix Bridge – Esplanade.","log"],
+  ["17.00–18.15","Diskusi Evaluasi — One Fullerton","3 pertanyaan evaluasi ada di tab Refleksi/Catatan.","eval","6.3 · 6.4"],
+  ["18.30","Makan malam","Lau Pa Sat (10 menit jalan kaki) atau restoran di One Fullerton.","mkn"],
+  ["20.00","Rapikan catatan di hotel","Lengkapi catatan sesi, tekan Rekap sebagai cadangan.","eval"]],
+ d5:[
+  ["07.00","Sarapan & check-out","Titip koper di resepsionis hotel — venue tidak punya penitipan barang.","log"],
+  ["09.30","Expo hari 2 — putaran kedua","Kunjungi lagi calon mitra terbaik; tutup booth yang terlewat.","expo"],
+  ["12.40","Makan siang cepat + rekap akhir","Kumpulkan brosur, foto bersama, tekan Rekap.","mkn","6.1 · 6.2"],
+  ["13.45","Ambil koper di hotel → Changi","Taksi 25 menit. Asumsi penerbangan 17.00; tiba di bandara 2 jam sebelumnya.","log"],
+  ["Sore","Terbang pulang ke Jakarta","Di pesawat: rapikan catatan untuk dibagikan ke tim.","eval"]]
+};
+const byTime = (a,b) => (a[0] > b[0]) - (a[0] < b[0]);
+function genDays(extra4, extra5, sub){
+  const d3 = DIAL_DAYS[0];
+  return [d3,
+    {key:"2026-11-04", short:"Rab 4", label:"Rabu, 4 November", sub:"Expo hari 1" + (sub||""), items:[...GEN.d4, ...extra4].sort(byTime),
+     tip:"Nomor booth belum dirilis di situs — cek di event app / peta lantai saat ambil badge."},
+    {key:"2026-11-05", short:"Kam 5", label:"Kamis, 5 November", sub:"Expo hari 2 & pulang", items:[...GEN.d5.slice(0,4).concat(extra5)].sort(byTime).concat([GEN.d5[4]]),
+     tip:"Tekan Rekap sebelum ke bandara, lalu kirim filenya ke diri sendiri sebagai cadangan."}];
+}
+const sesiLine = s => `${s.day.split(" ")[0]} ${s.time.split("–")[0]} · ${s.stage.replace(/ · /g," — ")} · ${s.title}${s.who ? " (" + s.who.split(" — ")[0] + ")" : ""}`;
+const PROFILES = {
+  dial:{id:"dial", name:"Dial", title:"Dial (Delegasi 2)", targets:true,
+    tg:{visit:30,kontak:30,prod:8,sesi:2,mitra:5,komp:3,eksp:1}, porsi:"Porsi Dial · Delegasi 2"},
+  kustian:{id:"kustian", name:"Kustian", title:"Kustian (Delegasi 1)", targets:true,
+    tg:{visit:30,kontak:30,prod:7,sesi:2,mitra:5,komp:2,eksp:1}, porsi:"Porsi Kustian · Delegasi 1"},
+  peserta:{id:"peserta", name:"", title:"", targets:false, tg:null, porsi:""}
+};
+let PROFILE = null, BOOTHS = [], SESSIONS = [], DAYS = DIAL_DAYS, REFL_P = [], SESI_LAIN = [];
+function applyProfile(pf){
+  PROFILE = Object.assign({}, PROFILES[pf.id]);
+  if(pf.id === "peserta"){ PROFILE.name = pf.name || "Peserta"; PROFILE.title = PROFILE.name; }
+  PROFILE.short = PROFILE.name;
+  if(pf.id === "dial"){ BOOTHS = DIAL_BOOTHS; SESSIONS = DIAL_SESSIONS; DAYS = DIAL_DAYS; }
+  else if(pf.id === "kustian"){
+    BOOTHS = []; SESSIONS = K_SESSIONS;
+    DAYS = genDays([["11.10","Sesi Zoho Creator — Stage B","Wajib. Lanjut ke booth Zoho.","sesi","2.1–2.3",{s:1}],
+                    ["13.40","Sesi D2L Brightspace — Stage B","Tambahan.","sesi","2.1 · 4.1",{s:2}],
+                    ["14.10","Sesi Moodle — Stage A","Wajib. Tanyakan Certified Partner.","sesi","2.1–2.3 · 3.2",{s:3}]],
+                   [["10.50","Sesi Canvas — flexible learning pathways","Tambahan. Cek stage di app.","sesi","2.1 · 4.1",{s:4}],
+                    ["11.20","Sesi NovaEd","Tambahan. Cek stage di app.","sesi","2.1 · 5.1",{s:5}]], " · rute Kustian");
+  } else { BOOTHS = []; SESSIONS = []; DAYS = genDays([], []); }
+  PROFILE.planned = BOOTHS.length > 0;
+  REFL_P = PROFILE.targets ? REFL : REFL.filter(t => ["Tren & Ide Produk","Diskusi Evaluasi · One Fullerton","Catatan bebas"].includes(t[0]));
+  const others = pf.id === "dial" ? K_SESSIONS : pf.id === "kustian" ? DIAL_SESSIONS : DIAL_SESSIONS.concat(K_SESSIONS);
+  SESI_LAIN = others.map(sesiLine).concat(SESI_CADANGAN);
+  const me = PROFILE.name || "me";
+  const swap = t => t.replace(/\bDial\b/g, me);
+  PITCH[0] = swap(PITCH[0]); PITCH[1] = swap(PITCH[1]);
+  SAPA0[0] = swap(SAPA0[0]); SAPA0[1] = swap(SAPA0[1]);
+  GEN_LINES[0][1] = SAPA0[0]; GEN_LINES[0][2] = SAPA0[1];
+}
+
+/* ================= STATE & SYNC ================= */
+let LS_KEY = "bukusaku-v2-none";
+const PF_KEY = "bukusaku-v2-profile";
+const S = { docs:{}, filter:"all", day:null, kPending:false, saveErr:false };
+const pad = n => String(n).padStart(2,"0");
+const bk = n => "b" + pad(n);
+const $ = (q, el=document) => el.querySelector(q);
+const $$ = (q, el=document) => [...el.querySelectorAll(q)];
+const esc = s => String(s ?? "").replace(/[&<>"']/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+const get = (doc, f) => S.docs[doc] ? S.docs[doc][f] : undefined;
+const filled = v => typeof v === "string" && v.trim() !== "";
+
+function loadLocal(){
+  try{ const raw = localStorage.getItem(LS_KEY); if(raw){ const o = JSON.parse(raw); S.docs = o.docs || {}; } }catch(e){}
+}
+function saveLocal(){
+  try{ localStorage.setItem(LS_KEY, JSON.stringify({docs:S.docs, savedAt:Date.now()})); if(S.saveErr){ S.saveErr = false; updateStatus(); } }
+  catch(e){ if(!S.saveErr){ S.saveErr = true; updateStatus(); toast("Gagal menyimpan di HP ini. Tekan Rekap untuk mengamankan catatan."); } }
+}
+function put(doc, f, v){
+  const d = Object.assign({}, S.docs[doc] || {}); d[f] = v; d._t = Date.now();
+  S.docs[doc] = d; saveLocal(); refreshDerived(doc);
+}
+function putWhole(doc, body){
+  S.docs[doc] = Object.assign({}, body, {_t:Date.now()}); saveLocal(); refreshDerived(doc);
+}
+function updateStatus(){
+  const el = $("#who");
+  el.dataset.s = S.saveErr ? "off" : "ok";
+  $("#syncText").textContent = S.saveErr ? "Gagal menyimpan" : (PROFILE ? PROFILE.short : "Pilih profil");
+}
+
+/* ================= UI HELPERS ================= */
+const ICON_CHEV = `<svg class="chev" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>`;
+const ICON_CHECK = `<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>`;
+const codesHtml = c => c ? c.split(/\s+/).filter(Boolean).map(x => `<span class="code">${esc(x)}</span>`).join("") : "";
+function ta(doc, f, label, codes, ph){
+  return `<label class="fld" for="${doc}-${f}"><span class="fl">${esc(label)}${codesHtml(codes)}</span>
+    <textarea id="${doc}-${f}" data-doc="${doc}" data-f="${f}" rows="2" placeholder="${esc(ph||"")}"></textarea></label>`;
+}
+function inp(doc, f, label, ph){
+  return `<label class="fld" for="${doc}-${f}"><span class="fl">${esc(label)}</span>
+    <input type="text" id="${doc}-${f}" data-doc="${doc}" data-f="${f}" placeholder="${esc(ph||"")}" autocomplete="off"></label>`;
+}
+function tg(doc, f, label, cls){
+  return `<label class="tg ${cls||""}" for="${doc}-${f}"><input type="checkbox" id="${doc}-${f}" data-doc="${doc}" data-f="${f}">${esc(label)}</label>`;
+}
+const AUTOSIZE = !(window.CSS && CSS.supports && CSS.supports("field-sizing","content"));
+function autosize(el){
+  if(!AUTOSIZE || el.tagName !== "TEXTAREA" || !el.offsetParent) return;
+  el.style.height = "auto"; el.style.height = Math.max(72, el.scrollHeight + 2) + "px";
+}
+function hydrate(el){
+  const v = get(el.dataset.doc, el.dataset.f);
+  if(el.type === "checkbox") el.checked = !!v;
+  else if(document.activeElement !== el) { el.value = v == null ? "" : v; autosize(el); }
+}
+function hydrateAll(){ $$("[data-doc]").forEach(hydrate); }
+let toastT;
+function toast(msg){ const t = $("#toast"); t.textContent = msg; t.hidden = false; clearTimeout(toastT); toastT = setTimeout(() => t.hidden = true, 3200); }
+
+/* ================= VIEW: JADWAL ================= */
+function sgtNow(){ const d = new Date(Date.now() + 8*3600e3);
+  return { key:`${d.getUTCFullYear()}-${pad(d.getUTCMonth()+1)}-${pad(d.getUTCDate())}`, min:d.getUTCHours()*60 + d.getUTCMinutes() }; }
+function itemMin(t){ const m = /^(\d{2})\.(\d{2})/.exec(t); if(!m) return null; let v = +m[1]*60 + +m[2]; if(/WIB/.test(t)) v += 60; return v; }
+function buildJadwal(){
+  const v = $("#v-jadwal");
+  const now = sgtNow();
+  if(!S.day){ const i = DAYS.findIndex(d => d.key === now.key); S.day = i >= 0 ? i : (now.key > DAYS[2].key ? 2 : 0); }
+  v.innerHTML = `
+    <div class="vh"><div><span class="eyebrow">3–5 November 2026 · Expo 4–5 Nov</span><h2>Jadwal & info hari H</h2>
+      <p>Sands Expo & Convention Centre · Marina Bay Sands · B2, Hall D–F. Semua jam dalam waktu Singapura (WIB + 1).</p></div></div>
+    <details class="card info"><summary><h3>Info penting hari H</h3>${ICON_CHEV}</summary>
+      <p class="alert">Lokasi: Sands Expo & Convention Centre, Marina Bay Sands — bukan Singapore Expo seperti tertulis di checklist misi.</p>
+      <dl>${INFO.map(([a,b]) => `<dt>${esc(a)}</dt><dd>${esc(b)}</dd>`).join("")}</dl></details>
+    <div class="seg" role="group" aria-label="Pilih hari">${DAYS.map((d,i) => `<button data-day="${i}" aria-pressed="${i===S.day}">${esc(d.short)}<small>${esc(d.sub.split(" · ")[0])}</small></button>`).join("")}</div>
+    <div class="card pad" id="dayBox"></div>
+    <div class="legend" aria-label="Keterangan warna">
+      <span><i style="background:var(--k-log)"></i>Logistik</span><span><i style="background:var(--k-wis)"></i>Wisata</span>
+      <span><i style="background:var(--k-expo)"></i>Expo</span><span><i style="background:var(--k-sesi)"></i>Sesi</span>
+      <span><i style="background:var(--k-mkn)"></i>Makan/istirahat</span><span><i style="background:var(--k-eval)"></i>Evaluasi</span></div>`;
+  $$(".seg button", v).forEach(b => b.addEventListener("click", () => { S.day = +b.dataset.day; renderDay(); }));
+  renderDay();
+}
+function renderDay(){
+  $$("#v-jadwal .seg button").forEach(b => b.setAttribute("aria-pressed", String(+b.dataset.day === S.day)));
+  const d = DAYS[S.day], now = sgtNow();
+  let nowIdx = -1;
+  if(now.key === d.key) d.items.forEach((it, i) => { const m = itemMin(it[0]); if(m != null && m <= now.min) nowIdx = i; });
+  $("#dayBox").innerHTML = `<h3>${esc(d.label)}</h3><p class="muted" style="margin:2px 0 8px;font-size:13.5px">${esc(d.sub)}</p>
+    <ol class="tl">${d.items.map((it, i) => {
+      const [t, title, note, k, codes, ref] = it;
+      const jumps = ref ? [
+        ...(ref.s ? [`<button data-jump-s="${ref.s}">Sesi: catatan</button>`] : []),
+        ...(ref.b || []).map(n => { const b = BOOTHS[n-1]; return `<button data-jump-b="${n}">#${pad(n)} ${esc(b.short || b.name)}</button>`; })
+      ].join("") : "";
+      return `<li data-k="${k}" class="${i===nowIdx ? "now" : ""}"><span class="t">${esc(t)}</span><span class="d"></span>
+        <div class="x"><b>${i===nowIdx ? '<span class="nowtag">SEKARANG</span>' : ""}${esc(title)}${codesHtml(codes)}</b>
+        ${note ? `<p>${esc(note)}</p>` : ""}${jumps ? `<div class="jump">${jumps}</div>` : ""}</div></li>`;
+    }).join("")}</ol><p class="tip" style="margin-top:12px">${esc(d.tip)}</p>`;
+}
+
+/* ================= VIEW: BOOTH ================= */
+function scriptLines(b){
+  const L = [["Sapa", SAPA0[0] + " " + b.sapa[0], SAPA0[1] + " " + b.sapa[1], "1.2"]];
+  if(b.p === "C"){
+    L.push(["Izin","Mind if I record this and snap a photo of the screen? It's just for my notes.","Boleh saya rekam dan foto layarnya? Cuma buat catatan saya.","1.3",'Kalau tidak boleh: "No worries!"']);
+    L.push(["Gali", ...b.gali]);
+    L.push(["Tutup","Got a brochure or QR code I could grab? And mind if we swap cards? Thanks so much!","Ada brosur atau QR code yang bisa saya bawa? Boleh tukar kartu nama? Makasih banyak ya!","1.2 3.1 6.2"]);
+    return L;
+  }
+  L.push(["Izin rekam","Mind if I record our chat on my phone? It's just so I don't miss anything.","Boleh saya rekam obrolan ini di HP? Biar nggak ada yang kelewat aja.","1.3",'Kalau tidak boleh: "No worries, I\'ll just take notes."']);
+  L.push(["Gali", ...b.gali]);
+  L.push(["Izin foto","This looks great — okay if I snap a quick photo of the screen?","Keren nih — boleh saya foto layarnya sebentar?","1.3",'Kalau tidak boleh: "No problem at all!"']);
+  b.targets.forEach(t => L.push(["Target", ...t]));
+  L.push(["Kolaborasi", ...b.kolab]);
+  L.push(["Materi","Do you have a brochure or a deck I could grab? A QR code works too.","Ada brosur atau materi yang bisa saya bawa? QR code juga boleh.","1.3 6.2"]);
+  L.push(["Tutup", b.tutup[0] + " Mind if we swap cards? Thanks so much — this was super helpful!", b.tutup[1] + " Boleh tukar kartu nama? Makasih banyak ya — ini membantu banget!","1.2 3.1"]);
+  return L;
+}
+function noteFields(b){
+  const k = bk(b.n);
+  if(b.p === "A") return ta(k,"n1","Produk, masalah & yang beda dari Eduvizta","1.3 1.4","Masalah yang diselesaikan, cara kerja, apa bedanya dengan kita")
+    + ta(k,"n2","Tren & insight","4.1 5.1","")
+    + ta(k,"n3","PIC, follow-up & peluang kerja sama","3.2 3.3","Nama PIC, langkah lanjut, bentuk kerja sama");
+  if(b.p === "B") return ta(k,"n1","Produk, insight & hal menarik","1.3 4.1","")
+    + ta(k,"n3","PIC, kontak & follow-up","3.1 3.2","");
+  return ta(k,"n1","Catatan · produk · insight · PIC · follow-up","","");
+}
+const DUR = {A:"10–12 menit", B:"5–7 menit", C:"3–4 menit"};
+function boothHtml(b){
+  const k = bk(b.n);
+  const lines = scriptLines(b).map(([lab,en,id,codes,fb]) => `<li><span class="lab">${esc(lab)}</span><div>
+      <div class="en">${esc(en)}</div><div class="id">${esc(id)}</div>${fb ? `<div class="fb">${esc(fb)}</div>` : ""}
+      ${codes ? `<div class="codes">${codesHtml(codes)}</div>` : ""}</div></li>`).join("");
+  return `<details class="card booth" id="booth-${b.n}" data-n="${b.n}" data-key="${k}" data-day="${b.day}" data-p="${b.p}">
+    <summary><span class="bn">#${pad(b.n)}</span>
+      <span class="bt"><b>${esc(b.name)}</b><small><span class="pri pri-${b.p}">${b.p}</span>
+        <span>${b.day === "Rab" ? "Rab 4 Nov" : "Kam 5 Nov"}</span><span data-bmeta="${b.n}"></span></small></span>
+      <span class="bs"><span class="ring" aria-hidden="true">${ICON_CHECK}</span>${ICON_CHEV}</span></summary>
+    <div class="bbody">
+      <dl class="meta"><dt>Jenis</dt><dd>${esc(b.type)}</dd><dt>Tentang</dt><dd>${esc(b.about)}</dd>
+        <dt>Relevansi</dt><dd>${esc(b.rel)}</dd><dt>Nama orang</dt><dd>${b.people ? esc(b.people) : '<span class="muted">Tanyakan di booth, lalu isi di bawah.</span>'}</dd>
+        <dt>Target</dt><dd>${codesHtml(b.codes)}</dd></dl>
+      <div class="row2">${inp(k,"no","No. booth","mis. E12")}${inp(k,"pic","Nama PIC yang ditemui","Nama · jabatan")}</div>
+      <div><p class="sublabel">Status</p><div class="toggles">
+        ${tg(k,"v_visit","Dikunjungi")}${tg(k,"v_rec","Direkam")}${tg(k,"v_foto","Foto")}${tg(k,"v_brosur","Brosur")}${tg(k,"v_kartu","Kartu nama")}${tg(k,"v_fu","Follow-up")}
+        ${tg(k,"f_mitra","Calon mitra","flagt")}${tg(k,"f_komp","Kompetitor","flagt")}${tg(k,"v_skip","Dilewati")}</div></div>
+      <details class="script" open><summary>Skrip ngobrol · ${DUR[b.p]}${ICON_CHEV}</summary><ol class="lines">${lines}</ol></details>
+      ${noteFields(b)}
+      <div class="btnrow"><button class="btn" data-addc="${b.n}"><svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg>Simpan kontak dari booth ini</button></div>
+    </div></details>`;
+}
+function buildBooth(){
+  const v = $("#v-booth");
+  v.innerHTML = `
+    <div class="vh"><div><span class="eyebrow">${BOOTHS.length ? BOOTHS.length + " booth rencana · " + BOOTHS.filter(b => b.p === "A").length + " prioritas A" : "Catat booth yang kamu kunjungi"}</span><h2>${PROFILE.targets ? "Target booth" : "Booth"}</h2>
+      <p id="boothSum"></p></div></div>
+    <details class="card ref"><summary><h3>Pitch 30 detik & kalimat umum</h3>${ICON_CHEV}</summary><div class="inner">
+      <div class="pitch"><div class="en">${esc(PITCH[0])}</div><div class="id">${esc(PITCH[1])}</div></div>
+      <p class="muted" style="margin:0;font-size:13px">Ucapkan pelan & senyum, sambil menyerahkan kartu nama.${codesHtml("1.2 3.1")}</p>
+      <div><p class="sublabel">Angka & fakta yang boleh disebut</p><dl class="facts">${FACTS.map(([a,b]) => `<dt>${esc(a)}</dt><dd>${esc(b)}</dd>`).join("")}</dl></div>
+      ${PHRASES.map(([t, c, rows]) => `<div><p class="sublabel">${esc(t)}${codesHtml(c)}</p><ul class="ph">${rows.map(([e,i]) => `<li><b>${esc(e)}</b><i>${esc(i)}</i></li>`).join("")}</ul></div>`).join("")}
+    </div></details>
+    <div class="chips" role="group" aria-label="Saring booth">
+      ${(PROFILE.planned ? [["all","Semua"],["Rab","Rab 4"],["Kam","Kam 5"],["A","Prioritas A"],["B","Prioritas B"],["C","Prioritas C"],["X","Di luar rencana"],["todo","Belum dikunjungi"]] : [["all","Semua"],["Rab","Rab 4"],["Kam","Kam 5"]])
+        .map(([k,l]) => `<button data-filter="${k}" aria-pressed="${k===S.filter}">${l}</button>`).join("")}</div>
+    <button class="btn add" id="xbAdd">${PROFILE.planned ? "+ Catat booth di luar rencana" : "+ Catat booth"}</button>
+    <div class="blist" id="xbWrap"></div>
+    ${PROFILE.planned ? '<p class="xhead">Booth rencana</p>' : ""}
+    <div class="blist" id="blist">${BOOTHS.map(boothHtml).join("")}</div>
+    ${PROFILE.planned ? '<p class="tip">Booth A boleh semua baris skrip; booth B pilih 3–4 baris; booth C cukup Sapa + 1 pertanyaan + Tutup. Setelah tiap booth, tulis 1 kalimat catatan sebelum pindah. Booth rencana yang batal dikunjungi: tandai “Dilewati”.</p>' : '<p class="tip">Setelah tiap booth, tulis 1 kalimat catatan sebelum pindah. Skrip umum ada di dalam kartu booth.</p>'}
+    <div class="card pad"><p class="sublabel">${PROFILE.planned ? "Cadangan bila kuota kurang" : "Exhibitor dari buku saku"} · ketuk untuk mencatat</p>
+      <div class="cadlist">${(PROFILE.planned ? CADANGAN.split(" · ") : DIAL_BOOTHS.map(b => b.short || b.name).concat(CADANGAN.split(" · "))).map(n => `<button data-cadb="${esc(n)}">${esc(n)}</button>`).join("")}</div></div>`;
+  $("#xbAdd").addEventListener("click", () => addCustomBooth(""));
+  $("#xbWrap").addEventListener("focusout", () => setTimeout(() => {
+    if(S.xbPending && !$("#xbWrap").contains(document.activeElement)){ S.xbPending = false; renderXB(); }
+  }, 0));
+  $$(".chips button", v).forEach(b => b.addEventListener("click", () => { S.filter = b.dataset.filter; applyFilter(); }));
+}
+function applyFilter(){
+  $$("#v-booth .chips button").forEach(b => b.setAttribute("aria-pressed", String(b.dataset.filter === S.filter)));
+  $$("#v-booth .booth").forEach(el => {
+    const f = S.filter, d = S.docs[el.dataset.key] || {};
+    el.hidden = !(f === "all" || el.dataset.day === f || el.dataset.p === f || (f === "todo" && !d.v_visit && !d.v_skip));
+  });
+}
+function updateBoothHead(n){
+  const el = $("#booth-" + n); if(!el) return;
+  const d = S.docs[bk(n)] || {};
+  el.classList.toggle("done", !!d.v_visit);
+  const bits = [];
+  if(filled(d.no)) bits.push("Booth " + d.no.trim());
+  if(d.f_mitra) bits.push('<span class="flag">Calon mitra</span>');
+  if(d.f_komp) bits.push('<span class="flag">Kompetitor</span>');
+  if(d.v_skip && !d.v_visit) bits.push("Dilewati");
+  $(`[data-bmeta="${n}"]`).innerHTML = bits.map(x => x.startsWith("<") ? x : esc(x)).join(" ");
+}
+
+/* ================= VIEW: SESI ================= */
+function buildSesi(){
+  const v = $("#v-sesi");
+  v.innerHTML = `
+    <div class="vh"><div><span class="eyebrow">Show & Tell / TECH Showcase</span><h2>Sesi gratis saya</h2>
+      <p>Stage A & B gratis untuk pemegang expo pass. Datang 5 menit lebih awal.${PROFILE.targets ? " Target 2.1: minimal 2 sesi dicatat, boleh sesi di luar rencana." : ""}</p></div></div>
+    <button class="btn add" id="xsAdd">${SESSIONS.length ? "+ Catat sesi di luar rencana" : "+ Catat sesi"}</button>
+    <div class="stack" id="xsWrap"></div>
+    ${SESSIONS.map((s, i) => { const k = "s" + (i+1); return `
+    <article class="card" id="sesi-${i+1}">
+      <div class="sh"><b>${esc(s.day)} · ${esc(s.time)}<span class="req ${s.wajib ? "w" : "t"}">${s.wajib ? "WAJIB" : "TAMBAHAN"}</span></b><span>${esc(s.stage)}</span></div>
+      <div class="sbody">
+        <div><h3>${esc(s.title)}</h3>${s.who ? `<div class="who">${esc(s.who)}</div>` : ""}</div>
+        <p class="why"><b>Kenapa:</b> ${esc(s.why)}</p>${s.note ? `<p class="note">${esc(s.note)}</p>` : ""}
+        ${s.q.length ? `<div><p class="sublabel">Pertanyaan untuk pembicara (Q&A / setelah sesi)</p>
+          <ul class="qs">${s.q.map(([e,i]) => `<li><b>${esc(e)}</b><i>${esc(i)}</i></li>`).join("")}</ul></div>` : ""}
+        <div><p class="sublabel">Catatan sesi <span data-sdone="${i+1}"></span>${codesHtml("2.2 2.3")}</p>
+          <div class="toggles">${tg(k,"rec","Direkam (izin)")}${tg(k,"manual","Catatan manual")}${tg(k,"slide","Slide diminta")}</div></div>
+        ${ta(k,"i1","Insight 1","","")}${ta(k,"i2","Insight 2","","")}${ta(k,"i3","Insight 3","","")}
+        ${ta(k,"rel","Relevansi untuk EDU / Eduvizta","","")}
+        ${ta(k,"qa","Pertanyaan yang saya ajukan & jawabannya","","")}
+      </div></article>`; }).join("")}
+    <details class="card ref" ${SESSIONS.length ? "" : "open"}><summary><h3>${SESSIONS.length ? "Sesi gratis lain" : "Sesi gratis yang bisa diikuti"}</h3>${ICON_CHEV}</summary><div class="inner">
+      <ul class="ph">${SESI_LAIN.map((x, i) => `<li class="withbtn"><i style="color:var(--ink)">${esc(x)}</i><button class="btn" data-cads="${i}">Catat</button></li>`).join("")}</ul></div></details>`;
+  $("#xsAdd").addEventListener("click", () => addCustomSession(null));
+  $("#xsWrap").addEventListener("focusout", () => setTimeout(() => {
+    if(S.xsPending && !$("#xsWrap").contains(document.activeElement)){ S.xsPending = false; renderXS(); }
+  }, 0));
+}
+function updateSesiHead(i){
+  const el = $(`[data-sdone="${i}"]`); if(!el) return;
+  const d = S.docs["s" + i] || {};
+  const n = ["i1","i2","i3"].filter(f => filled(d[f])).length;
+  el.innerHTML = n ? `<span class="donebadge">${n}/3 insight</span>` : "";
+}
+
+/* ================= VIEW: KONTAK ================= */
+function contacts(){ return ((S.docs.kontak && S.docs.kontak.items) || []).map(c => Object.assign({}, c)); }
+function buildKontak(){
+  const v = $("#v-kontak");
+  v.innerHTML = `
+    <div class="vh"><div><span class="eyebrow">${PROFILE.targets ? `Target ${PROFILE.tg.kontak} kontak unik ${codesHtml("3.1 3.2")}` : "Orang yang kamu temui"}</span><h2>Kontak</h2>
+      <p id="kCount">Belum ada kontak</p></div>
+      <div class="btnrow"><button class="btn primary" id="kAdd"><svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg>Tambah kontak</button></div></div>
+    <div class="blist" id="kList"></div>`;
+  $("#kAdd").addEventListener("click", () => addContact(""));
+  $("#kList").addEventListener("focusout", () => setTimeout(() => {
+    if(S.kPending && !$("#kList").contains(document.activeElement)){ S.kPending = false; renderContacts(); }
+  }, 0));
+}
+const CF = [["nama","Nama","Nama orang"],["org","Perusahaan / institusi","mis. Lenovo"],["jabatan","Jabatan",""],["kontak","Email / HP / LinkedIn","Bisa lebih dari satu"]];
+function contactHtml(c, open){
+  return `<details class="card contact" data-cid="${esc(c.id)}" ${open ? "open" : ""}>
+    <summary><span class="cn"><b data-cs="nama">${esc(c.nama || "Tanpa nama")}</b><small data-cs="sub">${esc([c.org, c.jabatan].filter(Boolean).join(" · ") || "Belum ada perusahaan")}</small></span>${ICON_CHEV}</summary>
+    <div class="cbody">
+      <div class="row2">${CF.map(([f,l,ph]) => `<label class="fld" for="c-${esc(c.id)}-${f}"><span class="fl">${l}</span>
+        <input type="text" id="c-${esc(c.id)}-${f}" data-cid="${esc(c.id)}" data-cf="${f}" placeholder="${esc(ph)}" autocomplete="off"></label>`).join("")}</div>
+      <label class="fld" for="c-${esc(c.id)}-catatan"><span class="fl">Catatan <em>(dibahas apa, langkah lanjut)</em></span>
+        <textarea id="c-${esc(c.id)}-catatan" data-cid="${esc(c.id)}" data-cf="catatan" rows="2"></textarea></label>
+      <div class="btnrow" data-del="${esc(c.id)}"><button class="btn danger" data-delask>Hapus kontak</button></div>
+    </div></details>`;
+}
+function renderContacts(){
+  const list = $("#kList"); if(!list) return;
+  const open = new Set($$("details[open]", list).map(d => d.dataset.cid));
+  const items = contacts();
+  const n = items.filter(c => filled(c.nama) || filled(c.org)).length;
+  $("#kCount").textContent = n ? `${n} kontak tersimpan` : "Belum ada kontak";
+  if(!items.length){
+    list.innerHTML = `<div class="card empty"><b>Belum ada kontak</b>Tekan “Tambah kontak” setelah tukar kartu nama, atau pakai tombol “Simpan kontak dari booth ini” di kartu booth.</div>`;
+    return;
+  }
+  list.innerHTML = items.slice().reverse().map(c => contactHtml(c, open.has(c.id))).join("");
+  $$("[data-cf]", list).forEach(el => { const c = items.find(x => x.id === el.dataset.cid); el.value = (c && c[el.dataset.cf]) || ""; autosize(el); });
+}
+function addContact(org){
+  const items = contacts();
+  const c = {id:"c" + Date.now().toString(36) + Math.random().toString(36).slice(2,5), nama:"", org:org || "", jabatan:"", kontak:"", catatan:""};
+  items.push(c); putWhole("kontak", {items});
+  showTab("kontak"); renderContacts();
+  const d = $(`#kList details[data-cid="${c.id}"]`);
+  if(d){ d.open = true; const i = $(`[data-cf="nama"]`, d); d.scrollIntoView({block:"start", behavior:"smooth"}); setTimeout(() => i && i.focus({preventScroll:true}), 250); }
+}
+function onContactInput(el){
+  const items = contacts(); const c = items.find(x => x.id === el.dataset.cid); if(!c) return;
+  c[el.dataset.cf] = el.value; putWhole("kontak", {items});
+  const d = el.closest("details");
+  $('[data-cs="nama"]', d).textContent = c.nama || "Tanpa nama";
+  $('[data-cs="sub"]', d).textContent = [c.org, c.jabatan].filter(Boolean).join(" · ") || "Belum ada perusahaan";
+  $("#kCount").textContent = (() => { const n = items.filter(x => filled(x.nama) || filled(x.org)).length; return n ? `${n} kontak tersimpan` : "Belum ada kontak"; })();
+}
+
+/* ================= VIEW: MISI ================= */
+function buildMisi(){
+  const v = $("#v-misi");
+  if(!PROFILE.targets){
+    v.innerHTML = `
+    <div class="vh"><div><span class="eyebrow">${esc(PROFILE.name)}</span><h2>Rekap</h2>
+      <p>Ringkasan catatan kamu selama EDUtech Asia 2026.</p></div></div>
+    <div class="card pad stack"><div><h3>Rekap hasil akhir</h3><p class="muted" style="margin:2px 0 0;font-size:13.5px">Satu tombol: catatan booth dan sesi, kontak, dan catatan pribadi digabung jadi satu file yang bisa langsung dibagikan ke WhatsApp atau email.</p></div>
+      <button class="btn primary" id="rekap" style="width:100%;padding:13px">Rekap hasil akhir</button></div>
+    <div class="card pad trk" id="trk"></div>
+    <p class="tip">Isian tersimpan di HP ini saja. Tekan Rekap tiap malam dan kirim ke diri sendiri sebagai cadangan.</p>`;
+    $("#rekap").addEventListener("click", rekap);
+    return;
+  }
+  v.innerHTML = `
+    <div class="vh"><div><span class="eyebrow">${esc(PROFILE.porsi)}</span><h2>Target misi</h2>
+      <p>Total 2 delegasi (Kustian & Dial): 60 booth · 60 kontak · 15 produk · 4 sesi · 10 calon mitra · 3 peluang strategis. Angka di bawah dihitung otomatis dari isian kamu.</p></div></div>
+    <div class="card pad stack"><div><h3>Rekap hasil akhir</h3><p class="muted" style="margin:2px 0 0;font-size:13.5px">Satu tombol untuk semuanya: capaian target, calon mitra, kompetitor, catatan booth dan sesi, daftar kontak, refleksi, dan checklist digabung jadi satu file untuk laporan dan presentasi setelah pulang.</p></div>
+      <button class="btn primary" id="rekap" style="width:100%;padding:13px">Rekap hasil akhir</button>
+      <p class="muted" style="margin:0;font-size:12.5px">Isian tersimpan di HP ini saja. Tekan Rekap tiap malam dan kirim ke diri sendiri sebagai cadangan.</p></div>
+    <div class="card pad trk" id="trk"></div>
+    <div class="card pad"><h3 style="margin-bottom:8px">Checklist delegasi</h3><div class="cl">
+      ${CHECK.map(([t, rows], gi) => `<h4><i>${gi+1}</i>${esc(t)}</h4>` + rows.map(([c, txt]) => {
+        const f = "c" + c.replace(".","_");
+        return `<label class="ci" for="misi-${f}"><input type="checkbox" id="misi-${f}" data-doc="misi" data-f="${f}"><b>${c}</b><span>${esc(txt)}</span></label>`; }).join("")).join("")}
+    </div></div>
+    <p class="tip">Kode kuning seperti <span class="code" style="margin:0">1.3</span> menunjukkan target checklist yang dicapai oleh aktivitas itu. Prioritas booth: A wajib & dalami 10–12 mnt · B penting 5–7 mnt · C cepat 3–4 mnt.</p>`;
+  $("#rekap").addEventListener("click", rekap);
+}
+function stats(){
+  let visit = 0, prod = 0, mitra = 0, komp = 0;
+  [...BOOTHS.map(b => bk(b.n)), ...liveIds("xb_")].forEach(k => { const d = S.docs[k] || {}; if(d.v_visit) visit++; if(filled(d.n1)) prod++; if(d.f_mitra) mitra++; if(d.f_komp) komp++; });
+  const kontak = contacts().filter(c => filled(c.nama) || filled(c.org)).length;
+  let wajib = 0, tambahan = 0;
+  SESSIONS.forEach((s, i) => { if(filled((S.docs["s"+(i+1)] || {}).i1)) s.wajib ? wajib++ : tambahan++; });
+  liveIds("xs_").forEach(k => { if(filled(S.docs[k].i1)) tambahan++; });
+  const eksp = filled((S.docs.ref || {}).e_judul) ? 1 : 0;
+  return {visit, prod, mitra, komp, kontak, wajib, tambahan, eksp};
+}
+function updateTracker(){
+  const st = stats();
+  if(!PROFILE.targets){
+    const rows = [["Booth dicatat",st.visit],["Sesi dicatat",st.wajib + st.tambahan],["Kontak",st.kontak],["Calon mitra ditandai",st.mitra]];
+    const el = $("#trk"); if(el) el.innerHTML = rows.map(([l,n]) => `<div class="tr"><span>${esc(l)}</span><output>${n}</output></div>`).join("");
+    const bs = $("#boothSum"); if(bs) bs.textContent = `${st.visit} booth dicatat · ${st.prod} dengan catatan produk`;
+    return;
+  }
+  const T = PROFILE.tg;
+  const rows = [
+    ["Booth dikunjungi","tandai “Dikunjungi” di kartu booth",st.visit,T.visit],
+    ["Kontak unik","dari tab Kontak",st.kontak,T.kontak],
+    ["Produk didokumentasi","kartu booth dengan catatan produk",st.prod,T.prod],
+    ["Sesi dicatat",`Insight 1 terisi · ${st.wajib} dari 2 sesi wajib`,st.wajib + st.tambahan,T.sesi],
+    ["Calon mitra","tandai “Calon mitra” di kartu booth",st.mitra,T.mitra],
+    ["Kompetitor dipelajari","tandai “Kompetitor”",st.komp,T.komp],
+    ["Eksperimen","judul terisi di Refleksi",st.eksp,T.eksp]
+  ];
+  const el = $("#trk"); if(el) el.innerHTML = rows.map(([l, h, n, t]) => `<div class="tr ${n >= t ? "full" : ""}"><span>${esc(l)} <small>· ${esc(h)}</small></span>
+    <output>${n}/${t}</output><div class="bar"><i style="width:${Math.min(100, Math.round(n/t*100))}%"></i></div></div>`).join("");
+  const bs = $("#boothSum"); if(bs) bs.textContent = `${st.visit} booth dikunjungi (target ${T.visit}) · ${st.prod} produk didokumentasi`;
+}
+
+/* ================= VIEW: REFLEKSI ================= */
+function buildRefleksi(){
+  const v = $("#v-refleksi");
+  v.innerHTML = `
+    <div class="vh"><div><span class="eyebrow">Isi sepanjang hari</span><h2>${PROFILE.targets ? "Refleksi & tindak lanjut" : "Catatan & refleksi"}</h2>
+      <p>Bukan sekadar mengumpulkan informasi, tetapi membangun cara berpikir yang lebih terbuka, kritis, dan berorientasi pada kemungkinan baru.</p></div></div>
+    ${REFL_P.map(([t, codes, fields]) => `<section class="card pad stack"><h3>${esc(t)}${codesHtml(codes)}</h3>
+      ${fields.map(([f, l, c, ph, single]) => single ? inp("ref", f, l, "") : ta("ref", f, l, c, ph)).join("")}</section>`).join("")}`;
+}
+
+/* ================= DI LUAR RENCANA ================= */
+const newId = p => p + Date.now().toString(36) + Math.random().toString(36).slice(2,5);
+const liveIds = p => Object.keys(S.docs).filter(k => k.startsWith(p) && !S.docs[k]._del).sort((a,b) => (S.docs[a]._c||0) - (S.docs[b]._c||0));
+const GEN_LINES = [
+  ["Sapa", SAPA0[0], SAPA0[1], "1.2"],
+  ["Izin","Mind if I record this and snap a photo of the screen? It's just for my notes.","Boleh saya rekam dan foto layarnya? Cuma buat catatan saya.","1.3",'Kalau tidak boleh: "No worries!"'],
+  ["Gali","What problem does your product solve for schools or universities?","Produk ini menyelesaikan masalah apa untuk sekolah atau kampus?","1.3"],
+  ["Gali","Could you show me a quick demo?","Boleh lihat demo singkat?","1.3"],
+  ["Target","How does the AI part actually work?","Bagian AI-nya sebenarnya bekerja seperti apa?","4.1"],
+  ["Kolaborasi","Is it used in Indonesia yet? Are you looking for partners there?","Sudah dipakai di Indonesia? Sedang cari mitra di sana?","3.2 3.3"],
+  ["Tutup","Who's the best person to follow up with? Mind if we swap cards? Thanks so much — this was super helpful!","Siapa orang yang pas untuk follow-up? Boleh tukar kartu nama? Makasih banyak ya — ini membantu banget!","1.2 3.1 6.2"]
+];
+const linesHtml = L => L.map(([lab,en,id,codes,fb]) => `<li><span class="lab">${esc(lab)}</span><div>
+  <div class="en">${esc(en)}</div><div class="id">${esc(id)}</div>${fb ? `<div class="fb">${esc(fb)}</div>` : ""}
+  ${codes ? `<div class="codes">${codesHtml(codes)}</div>` : ""}</div></li>`).join("");
+const dayLabel = d => d === "Kam" ? "Kam 5 Nov" : "Rab 4 Nov";
+function delRow(id, label){ return `<div class="btnrow" data-xdelrow="${id}"><button class="btn danger" data-xdelask>${label}</button></div>`; }
+function xbHtml(id){
+  const d = S.docs[id] || {};
+  return `<details class="card booth" id="${id}" data-key="${id}" data-day="${esc(d.day || "Rab")}" data-p="X">
+    <summary><span class="bn">+</span>
+      <span class="bt"><b data-xname>${esc(d.name || "Booth baru")}</b><small><span class="pri pri-X">${PROFILE.planned ? "Di luar rencana" : "Dicatat"}</span>
+        <span data-xday>${dayLabel(d.day)}</span><span data-xmeta></span></small></span>
+      <span class="bs"><span class="ring" aria-hidden="true">${ICON_CHECK}</span>${ICON_CHEV}</span></summary>
+    <div class="bbody">
+      <div class="row2">${inp(id,"name","Nama perusahaan / booth","mis. Padlet")}
+        <label class="fld" for="${id}-day"><span class="fl">Hari</span><select id="${id}-day" data-doc="${id}" data-f="day"><option value="Rab">Rab 4 Nov</option><option value="Kam">Kam 5 Nov</option></select></label></div>
+      <div class="row2">${inp(id,"no","No. booth","mis. E12")}${inp(id,"pic","Nama PIC yang ditemui","Nama · jabatan")}</div>
+      ${inp(id,"about","Produknya tentang apa","Satu kalimat")}
+      <div><p class="sublabel">Status</p><div class="toggles">
+        ${tg(id,"v_visit","Dikunjungi")}${tg(id,"v_rec","Direkam")}${tg(id,"v_foto","Foto")}${tg(id,"v_brosur","Brosur")}${tg(id,"v_kartu","Kartu nama")}${tg(id,"v_fu","Follow-up")}
+        ${tg(id,"f_mitra","Calon mitra","flagt")}${tg(id,"f_komp","Kompetitor","flagt")}</div></div>
+      <details class="script"><summary>Skrip umum (untuk booth mana saja)${ICON_CHEV}</summary><ol class="lines">${linesHtml(GEN_LINES)}</ol></details>
+      ${ta(id,"n1","Produk, masalah & yang beda dari Eduvizta","1.3 1.4","")}${ta(id,"n2","Tren & insight","4.1 5.1","")}${ta(id,"n3","PIC, follow-up & peluang kerja sama","3.2 3.3","")}
+      <div class="btnrow"><button class="btn" data-addcx="${id}"><svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg>Simpan kontak dari booth ini</button></div>
+      ${delRow(id, "Hapus booth ini")}
+    </div></details>`;
+}
+function renderXB(){
+  const w = $("#xbWrap"); if(!w) return;
+  const open = new Set($$(":scope > details[open]", w).map(d => d.id));
+  w.innerHTML = liveIds("xb_").map(xbHtml).join("");
+  $$("[data-doc]", w).forEach(hydrate);
+  $$(":scope > details", w).forEach(d => { if(open.has(d.id)) d.open = true; updateXbHead(d.id); });
+  applyFilter();
+}
+function updateXbHead(id){
+  const el = $("#" + id); if(!el) return;
+  const d = S.docs[id] || {};
+  el.classList.toggle("done", !!d.v_visit);
+  el.dataset.day = d.day || "Rab";
+  $("[data-xname]", el).textContent = filled(d.name) ? d.name : "Booth baru";
+  $("[data-xday]", el).textContent = dayLabel(d.day);
+  const bits = [];
+  if(filled(d.no)) bits.push(esc("Booth " + d.no.trim()));
+  if(d.f_mitra) bits.push('<span class="flag">Calon mitra</span>');
+  if(d.f_komp) bits.push('<span class="flag">Kompetitor</span>');
+  $("[data-xmeta]", el).innerHTML = bits.join(" ");
+}
+function addCustomBooth(name){
+  const id = newId("xb_");
+  const day = sgtNow().key === "2026-11-05" ? "Kam" : "Rab";
+  putWhole(id, {name:name || "", day, v_visit:true, _c:Date.now()});
+  showTab("booth"); if(S.filter !== "all" && S.filter !== "X"){ S.filter = "all"; }
+  renderXB();
+  const d = $("#" + id); if(!d) return;
+  d.open = true; d.scrollIntoView({block:"start", behavior:"smooth"});
+  if(!name) setTimeout(() => { const i = $(`#${id}-name`); i && i.focus({preventScroll:true}); }, 250);
+}
+function xsHtml(id){
+  const d = S.docs[id] || {};
+  return `<article class="card" id="${id}">
+    <div class="sh"><b><span data-xswhen>${esc(d.when || "Sesi tambahan")}</span><span class="req t">${SESSIONS.length ? "DI LUAR RENCANA" : "SESI"}</span></b><span data-xsstage>${esc(d.stage || "")}</span></div>
+    <div class="sbody">
+      ${inp(id,"title","Judul sesi","")}
+      <div class="row2">${inp(id,"when","Hari & jam","mis. Rab 4 Nov · 15.40")}${inp(id,"stage","Stage","mis. Stage B · Show & Tell")}</div>
+      ${inp(id,"who","Pembicara","Nama · institusi")}
+      <div><p class="sublabel">Catatan sesi <span data-xsdone></span>${codesHtml("2.2 2.3")}</p>
+        <div class="toggles">${tg(id,"rec","Direkam (izin)")}${tg(id,"manual","Catatan manual")}${tg(id,"slide","Slide diminta")}</div></div>
+      ${ta(id,"i1","Insight 1","","")}${ta(id,"i2","Insight 2","","")}${ta(id,"i3","Insight 3","","")}
+      ${ta(id,"rel","Relevansi untuk EDU / Eduvizta","","")}
+      ${ta(id,"qa","Pertanyaan yang saya ajukan & jawabannya","","")}
+      ${delRow(id, "Hapus sesi ini")}
+    </div></article>`;
+}
+function renderXS(){
+  const w = $("#xsWrap"); if(!w) return;
+  w.innerHTML = liveIds("xs_").map(xsHtml).join("");
+  $$("[data-doc]", w).forEach(hydrate);
+  liveIds("xs_").forEach(updateXsHead);
+}
+function updateXsHead(id){
+  const el = $("#" + id); if(!el) return;
+  const d = S.docs[id] || {};
+  $("[data-xswhen]", el).textContent = filled(d.when) ? d.when : "Sesi tambahan";
+  $("[data-xsstage]", el).textContent = d.stage || "";
+  const n = ["i1","i2","i3"].filter(f => filled(d[f])).length;
+  $("[data-xsdone]", el).innerHTML = n ? `<span class="donebadge">${n}/3 insight</span>` : "";
+}
+function addCustomSession(pref){
+  const id = newId("xs_");
+  putWhole(id, Object.assign({title:"", when:"", stage:"", who:""}, pref || {}, {_c:Date.now()}));
+  showTab("sesi"); renderXS();
+  const el = $("#" + id); if(!el) return;
+  el.scrollIntoView({block:"start", behavior:"smooth"});
+  setTimeout(() => { const i = $(`#${id}-${pref ? "i1" : "title"}`); i && i.focus({preventScroll:true}); }, 250);
+}
+
+/* ================= DERIVED ================= */
+function refreshDerived(doc){
+  if(/^b\d\d$/.test(doc)) updateBoothHead(+doc.slice(1));
+  if(/^s\d$/.test(doc)) updateSesiHead(+doc.slice(1));
+  if(doc.startsWith("xb_")) updateXbHead(doc);
+  if(doc.startsWith("xs_")) updateXsHead(doc);
+  updateTracker();
+}
+function refreshAll(){ BOOTHS.forEach(b => updateBoothHead(b.n)); SESSIONS.forEach((s,i) => updateSesiHead(i+1)); updateTracker(); applyFilter(); }
+
+/* ================= EXPORT ================= */
+function buildMarkdown(){
+  const L = [], st = stats(), d = new Date();
+  const line = (lab, v) => { if(filled(v)) L.push(`**${lab}:** ${v.trim()}`, ""); };
+  L.push(`# Rekap EDUtech Asia 2026 — ${PROFILE.title}`, "", `PT Edu Media Digital · Eduvizta · dibuat ${d.toLocaleString("id-ID")}`, "");
+  if(PROFILE.targets){ const T = PROFILE.tg;
+    L.push("## Ringkasan target", "",
+      `- Booth dikunjungi: ${st.visit}/${T.visit}`, `- Kontak unik: ${st.kontak}/${T.kontak}`, `- Produk didokumentasi: ${st.prod}/${T.prod}`,
+      `- Sesi dicatat: ${st.wajib + st.tambahan}/${T.sesi} (${st.wajib} sesi wajib)`, `- Calon mitra: ${st.mitra}/${T.mitra}`, `- Kompetitor: ${st.komp}/${T.komp}`, `- Eksperimen: ${st.eksp}/${T.eksp}`, "");
+  } else {
+    L.push("## Ringkasan", "", `- Booth dicatat: ${st.visit}`, `- Sesi dicatat: ${st.wajib + st.tambahan}`, `- Kontak: ${st.kontak}`, `- Calon mitra ditandai: ${st.mitra}`, "");
+  }
+  const allB = [...BOOTHS.map(b => ({key:bk(b.n), name:b.name})), ...liveIds("xb_").map(id => ({key:id, name:(S.docs[id].name || "Booth tanpa nama").trim() + " (di luar rencana)"}))];
+  const firstLine = v => filled(v) ? v.trim().split("\n")[0] : "";
+  const mitraL = allB.filter(b => (S.docs[b.key] || {}).f_mitra);
+  const kompL = allB.filter(b => (S.docs[b.key] || {}).f_komp);
+  const skipL = BOOTHS.filter(b => { const x = S.docs[bk(b.n)] || {}; return x.v_skip && !x.v_visit; });
+  L.push("## Sorotan", "", "**Calon mitra**", "");
+  if(mitraL.length) mitraL.forEach(b => { const x = S.docs[b.key]; const bits = [filled(x.pic) ? "PIC: " + x.pic.trim() : "", firstLine(x.n3)].filter(Boolean); L.push(`- ${b.name}${bits.length ? " — " + bits.join(" · ") : ""}`); });
+  else L.push("- Belum ada yang ditandai");
+  L.push("", "**Kompetitor yang dipelajari**", "");
+  if(kompL.length) kompL.forEach(b => { const x = S.docs[b.key]; L.push(`- ${b.name}${firstLine(x.n1) ? " — " + firstLine(x.n1) : ""}`); });
+  else L.push("- Belum ada yang ditandai");
+  if(skipL.length) L.push("", `**Booth rencana yang dilewati:** ${skipL.map(b => b.name).join(", ")}`);
+  L.push("");
+  L.push("## Booth", "");
+  let any = false;
+  BOOTHS.forEach(b => {
+    const x = S.docs[bk(b.n)] || {};
+    const flags = [["v_visit","Dikunjungi"],["v_rec","Direkam"],["v_foto","Foto"],["v_brosur","Brosur"],["v_kartu","Kartu nama"],["v_fu","Follow-up"],["f_mitra","Calon mitra"],["f_komp","Kompetitor"]].filter(([f]) => x[f]).map(([,l]) => l);
+    if(!flags.length && !["no","pic","n1","n2","n3"].some(f => filled(x[f]))) return;
+    any = true;
+    L.push(`### #${pad(b.n)} ${b.name} (Prioritas ${b.p})`, "");
+    if(filled(x.no)) L.push(`- No. booth: ${x.no.trim()}`);
+    if(filled(x.pic)) L.push(`- PIC: ${x.pic.trim()}`);
+    if(flags.length) L.push(`- Status: ${flags.join(", ")}`);
+    L.push("");
+    if(b.p === "A"){ line("Produk, masalah & yang beda dari Eduvizta", x.n1); line("Tren & insight", x.n2); line("PIC, follow-up & peluang kerja sama", x.n3); }
+    else if(b.p === "B"){ line("Produk, insight & hal menarik", x.n1); line("PIC, kontak & follow-up", x.n3); }
+    else line("Catatan", x.n1);
+  });
+  liveIds("xb_").forEach(id => {
+    const x = S.docs[id]; any = true;
+    const flags = [["v_visit","Dikunjungi"],["v_rec","Direkam"],["v_foto","Foto"],["v_brosur","Brosur"],["v_kartu","Kartu nama"],["v_fu","Follow-up"],["f_mitra","Calon mitra"],["f_komp","Kompetitor"]].filter(([f]) => x[f]).map(([,l]) => l);
+    L.push(`### ${filled(x.name) ? x.name.trim() : "Booth tanpa nama"} (${PROFILE.planned ? "di luar rencana, " : ""}${dayLabel(x.day)})`, "");
+    if(filled(x.no)) L.push(`- No. booth: ${x.no.trim()}`);
+    if(filled(x.pic)) L.push(`- PIC: ${x.pic.trim()}`);
+    if(filled(x.about)) L.push(`- Produk: ${x.about.trim()}`);
+    if(flags.length) L.push(`- Status: ${flags.join(", ")}`);
+    L.push("");
+    line("Produk, masalah & yang beda dari Eduvizta", x.n1); line("Tren & insight", x.n2); line("PIC, follow-up & peluang kerja sama", x.n3);
+  });
+  if(!any) L.push("_Belum ada booth yang diisi._", "");
+  L.push("## Sesi", "");
+  const sesiLen = L.length;
+  SESSIONS.forEach((s, i) => {
+    const x = S.docs["s"+(i+1)] || {};
+    if(!["i1","i2","i3","rel","qa"].some(f => filled(x[f])) && !x.rec && !x.manual && !x.slide) return;
+    L.push(`### ${s.title}`, "", `${s.day} · ${s.time} · ${s.stage} · ${s.who}`, "");
+    const fl = [["rec","Direkam"],["manual","Catatan manual"],["slide","Slide diminta"]].filter(([f]) => x[f]).map(([,l]) => l);
+    if(fl.length) L.push(`- ${fl.join(", ")}`, "");
+    ["i1","i2","i3"].forEach((f, j) => line(`Insight ${j+1}`, x[f]));
+    line("Relevansi untuk EDU", x.rel); line("Pertanyaan & jawaban", x.qa);
+  });
+  liveIds("xs_").forEach(id => {
+    const x = S.docs[id];
+    L.push(`### ${filled(x.title) ? x.title.trim() : "Sesi tanpa judul"} (di luar rencana)`, "");
+    const meta = [x.when, x.stage, x.who].filter(filled).map(v => v.trim()).join(" · ");
+    if(meta) L.push(meta, "");
+    const fl = [["rec","Direkam"],["manual","Catatan manual"],["slide","Slide diminta"]].filter(([f]) => x[f]).map(([,l]) => l);
+    if(fl.length) L.push(`- ${fl.join(", ")}`, "");
+    ["i1","i2","i3"].forEach((f, j) => line(`Insight ${j+1}`, x[f]));
+    line("Relevansi untuk EDU", x.rel); line("Pertanyaan & jawaban", x.qa);
+  });
+  if(L.length === sesiLen) L.push("_Belum ada sesi yang dicatat._", "");
+  const cs = contacts().filter(c => filled(c.nama) || filled(c.org));
+  L.push("## Kontak", "");
+  const cell = v => String(v || "").trim().replace(/\|/g, "/").replace(/\s*\n\s*/g, "; ");
+  if(cs.length){
+    L.push(`${cs.length} kontak`, "", "| No | Nama | Perusahaan | Jabatan | Kontak | Catatan |", "| --- | --- | --- | --- | --- | --- |");
+    cs.forEach((c, i) => L.push(`| ${i+1} | ${cell(c.nama)} | ${cell(c.org)} | ${cell(c.jabatan)} | ${cell(c.kontak)} | ${cell(c.catatan)} |`));
+  } else L.push("_Belum ada kontak._");
+  L.push("");
+  const r = S.docs.ref || {};
+  REFL_P.forEach(([t,, fields]) => {
+    const has = fields.some(([f]) => filled(r[f])); if(!has) return;
+    L.push(`## ${t}`, ""); fields.forEach(([f, l]) => line(l, r[f]));
+  });
+  if(!PROFILE.targets) return L.join("\n") + "\n";
+  L.push("## Checklist delegasi", "");
+  const m = S.docs.misi || {};
+  CHECK.forEach(([t, rows]) => rows.forEach(([c, txt]) => L.push(`- [${m["c" + c.replace(".","_")] ? "x" : " "}] ${c} ${txt}`)));
+  return L.join("\n") + "\n";
+}
+async function offerFile(filename, text){
+  let file = null;
+  try{ file = new File([text], filename, {type:"text/plain"}); }catch(e){}
+  if(file && navigator.canShare && navigator.canShare({files:[file]})){
+    try{ await navigator.share({files:[file], title:filename}); return; }
+    catch(e){ if(e && e.name === "AbortError") return; }
+  }
+  try{
+    const url = URL.createObjectURL(file || new Blob([text], {type:"text/plain"}));
+    const a = document.createElement("a"); a.href = url; a.download = filename;
+    document.body.appendChild(a); a.click(); a.remove();
+    setTimeout(() => URL.revokeObjectURL(url), 5000);
+    toast("File rekap diunduh"); return;
+  }catch(e){}
+  if(await copyText(text)){ toast("Rekap disalin. Tempel ke dokumen atau chat."); return; }
+  openSheet(text, "Salin teks di bawah, lalu tempel ke dokumen atau chat.");
+}
+function rekap(){
+  const md = buildMarkdown();
+  const slug = (PROFILE.name || "peserta").trim().replace(/[^A-Za-z0-9]+/g, "-").replace(/^-|-$/g, "") || "peserta";
+  offerFile(`Rekap-EDUtech-Asia-2026-${slug}.txt`, md);
+}
+async function copyText(t){ try{ await navigator.clipboard.writeText(t); return true; }catch(e){ return false; } }
+function openSheet(text, sub){
+  $("#sheetText").value = text; $("#sheetSub").textContent = sub; $("#sheet").hidden = false; $("#sheetCopy").focus();
+}
+$("#sheetClose").addEventListener("click", () => $("#sheet").hidden = true);
+$("#sheet").addEventListener("click", e => { if(e.target.id === "sheet") $("#sheet").hidden = true; });
+$("#sheetCopy").addEventListener("click", async () => {
+  const ta = $("#sheetText");
+  if(await copyText(ta.value)) toast("Disalin"); else { ta.focus(); ta.select(); toast("Teks sudah dipilih, tekan salin"); }
+});
+
+/* ================= TABS & EVENTS ================= */
+const TABS = ["jadwal","booth","sesi","kontak","misi","refleksi"];
+function showTab(t){
+  if(!TABS.includes(t)) t = "jadwal";
+  TABS.forEach(x => { $("#v-" + x).hidden = x !== t; });
+  $$(".tab").forEach(b => b.setAttribute("aria-selected", String(b.dataset.tab === t)));
+  try{ localStorage.setItem(LS_KEY + "-tab", t); }catch(e){}
+  if(t === "jadwal") renderDay();
+  if(AUTOSIZE) $$("#v-" + t + " textarea").forEach(autosize);
+}
+$$(".tab").forEach(b => b.addEventListener("click", () => { showTab(b.dataset.tab); window.scrollTo({top:0}); }));
+
+document.addEventListener("input", e => {
+  const el = e.target;
+  if(el.dataset.cid && el.dataset.cf){ onContactInput(el); autosize(el); return; }
+  if(!el.dataset.doc || el.type === "checkbox") return;
+  put(el.dataset.doc, el.dataset.f, el.value); autosize(el);
+});
+document.addEventListener("change", e => {
+  const el = e.target;
+  if(el.dataset.doc && el.type === "checkbox") put(el.dataset.doc, el.dataset.f, el.checked);
+});
+document.addEventListener("click", e => {
+  const jb = e.target.closest("[data-jump-b]"), js = e.target.closest("[data-jump-s]");
+  const ac = e.target.closest("[data-addc]"), da = e.target.closest("[data-delask]");
+  const dy = e.target.closest("[data-delyes]"), dn = e.target.closest("[data-delno]");
+  if(jb){ const n = +jb.dataset.jumpB; S.filter = "all"; showTab("booth"); applyFilter();
+    const d = $("#booth-" + n); d.open = true; setTimeout(() => d.scrollIntoView({block:"start", behavior:"smooth"}), 30); }
+  if(js){ showTab("sesi"); const d = $("#sesi-" + js.dataset.jumpS); setTimeout(() => d.scrollIntoView({block:"start", behavior:"smooth"}), 30); }
+  if(ac){ const b = BOOTHS[+ac.dataset.addc - 1]; addContact(b.short || b.name); }
+  const acx = e.target.closest("[data-addcx]");
+  if(acx){ addContact((S.docs[acx.dataset.addcx] || {}).name || ""); }
+  const cb = e.target.closest("[data-cadb]");
+  if(cb){ addCustomBooth(cb.dataset.cadb); }
+  const cs = e.target.closest("[data-cads]");
+  if(cs){ const parts = SESI_LAIN[+cs.dataset.cads].split(" · ");
+    addCustomSession({when: parts[0] || "", stage: parts[1] || "", title: parts.slice(2).join(" · ")}); }
+  const xa = e.target.closest("[data-xdelask]"), xy = e.target.closest("[data-xdelyes]"), xn = e.target.closest("[data-xdelno]");
+  if(xa){ xa.parentElement.innerHTML = `<span class="confirm">Yakin hapus beserta catatannya? <button class="btn danger" data-xdelyes>Ya, hapus</button><button class="btn" data-xdelno>Batal</button></span>`; }
+  if(xn){ const r = xn.closest("[data-xdelrow]"); const id = r.dataset.xdelrow; r.innerHTML = `<button class="btn danger" data-xdelask>${id.startsWith("xb_") ? "Hapus booth ini" : "Hapus sesi ini"}</button>`; }
+  if(xy){ const id = xy.closest("[data-xdelrow]").dataset.xdelrow; put(id, "_del", true);
+    if(id.startsWith("xb_")) renderXB(); else renderXS(); toast("Dihapus"); }
+  if(da){ const row = da.parentElement; row.innerHTML = `<span class="confirm">Hapus kontak ini? <button class="btn danger" data-delyes>Ya, hapus</button><button class="btn" data-delno>Batal</button></span>`; }
+  if(dn){ dn.closest("[data-del]").innerHTML = `<button class="btn danger" data-delask>Hapus kontak</button>`; }
+  if(dy){ const id = dy.closest("[data-del]").dataset.del; putWhole("kontak", {items: contacts().filter(c => c.id !== id)}); renderContacts(); toast("Kontak dihapus"); }
+});
+document.addEventListener("toggle", e => { if(e.target.tagName === "DETAILS" && e.target.open && AUTOSIZE) $$("textarea", e.target).forEach(autosize); }, true);
+document.addEventListener("keydown", e => { if(e.key === "Escape" && !$("#sheet").hidden) $("#sheet").hidden = true; });
+
+/* ================= PROFILE & BOOT ================= */
+function readProfile(){ try{ const o = JSON.parse(localStorage.getItem(PF_KEY) || "null"); return o && PROFILES[o.id] ? o : null; }catch(e){ return null; } }
+function openProfile(first){
+  const cur = readProfile();
+  $$('#pf input[name="pf"]').forEach(r => { r.checked = !!cur && r.value === cur.id; });
+  $("#pfName").value = cur && cur.id === "peserta" ? (cur.name || "") : "";
+  $("#pfNameWrap").hidden = !(cur && cur.id === "peserta");
+  $("#pfCancel").hidden = first; $("#pfNote").hidden = first;
+  $("#pf").hidden = false;
+}
+$("#pf").addEventListener("change", e => { if(e.target.name === "pf"){ $("#pfNameWrap").hidden = e.target.value !== "peserta"; if(e.target.value === "peserta") $("#pfName").focus(); } });
+$("#pfCancel").addEventListener("click", () => $("#pf").hidden = true);
+$("#pfGo").addEventListener("click", () => {
+  const sel = $('#pf input[name="pf"]:checked');
+  if(!sel){ toast("Pilih salah satu profil dulu"); return; }
+  const pf = {id:sel.value};
+  if(sel.value === "peserta"){ pf.name = $("#pfName").value.trim(); if(!pf.name){ toast("Isi nama dulu, untuk judul rekap"); $("#pfName").focus(); return; } }
+  try{ localStorage.setItem(PF_KEY, JSON.stringify(pf)); }catch(e){}
+  const cur = PROFILE ? PROFILE.id : null;
+  if(cur){ location.reload(); return; }
+  $("#pf").hidden = true; start(pf);
+});
+$("#who").addEventListener("click", () => openProfile(false));
+
+function start(pf){
+  applyProfile(pf);
+  LS_KEY = "bukusaku-v2-" + pf.id;
+  $("#brandSub").textContent = PROFILE.targets ? `Buku Saku · ${PROFILE.title}` : `Buku Saku · ${PROFILE.name}`;
+  if(!PROFILE.targets){
+    $('.tab[data-tab="misi"]').lastChild.textContent = "Rekap";
+    $('.tab[data-tab="refleksi"]').lastChild.textContent = "Catatan";
+  }
+  loadLocal();
+  buildJadwal(); buildBooth(); buildSesi(); buildKontak(); buildMisi(); buildRefleksi();
+  hydrateAll(); renderContacts(); renderXB(); renderXS(); refreshAll();
+  let startTab = "jadwal"; try{ startTab = localStorage.getItem(LS_KEY + "-tab") || "jadwal"; }catch(e){}
+  showTab(startTab);
+  updateStatus();
+  setInterval(() => { if(!$("#v-jadwal").hidden) renderDay(); }, 60000);
+  try{ if(navigator.storage && navigator.storage.persist) navigator.storage.persist(); }catch(e){}
+}
+
+const saved = readProfile();
+if(saved) start(saved); else openProfile(true);
+
+if("serviceWorker" in navigator && /^https?:/.test(location.protocol)){
+  window.addEventListener("load", () => navigator.serviceWorker.register("sw.js").catch(() => {}));
+}
+</script>
+</body>
+</html>
